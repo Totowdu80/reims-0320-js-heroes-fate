@@ -1,4 +1,6 @@
-Made by Julien
+Project realized by Anthony Lucci and Julien Nicaise
+
+----
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
