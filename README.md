@@ -1,6 +1,4 @@
-Project realized by Anthony Lucci and Julien Nicaise
-
-made with <3 by Cecyl 
+Project realized by Anthony Lucci, Cécyl lang and Julien Nicaise
 
 ----
 
