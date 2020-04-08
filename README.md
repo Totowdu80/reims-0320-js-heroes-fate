@@ -1,4 +1,4 @@
-Project realized by Anthony Lucci
+Project realized by Anthony Lucci and Julien Nicaise
 
 ----
 
