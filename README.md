@@ -1,5 +1,7 @@
 Project realized by Anthony Lucci
 
+made with <3 by Cecyl 
+
 ----
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
