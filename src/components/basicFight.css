@@ -1,0 +1,27 @@
+.weaponButton {
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:90px;
+    height:90px;
+    margin: 10px
+}
+
+.affichageON {
+
+}
+
+.affichageOFF {
+display: none;
+}
+
+.player-image {
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:100px;
+    width:200px;
+    height:200px;
+    margin: 20px;
+}
