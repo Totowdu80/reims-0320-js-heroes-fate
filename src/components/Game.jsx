@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Player from './player';
+import './Game.css';
 
 const weapons = ['rock', 'paper', 'scissors'];
 
@@ -10,6 +11,7 @@ class Game extends Component {
       playerOne: weapons[0],
       playerTwo: weapons[0],
       winner: '',
+      interface: 'choix',
     };
   }
 
@@ -18,6 +20,7 @@ class Game extends Component {
       const gameInterval = setInterval(() => {
         counter += 1;
         this.setState({
+          interface: 'resultats',
           playerTwo: weapons[Math.floor(Math.random() * weapons.length)],
           winner: '',
         });
@@ -56,19 +59,21 @@ class Game extends Component {
       const { playerOne, playerTwo, winner } = this.state;
       return (
         <>
-          <div>
-            <Player weapon={playerOne} />
-            <Player weapon={playerTwo} />
+          <div className={this.state.interface === 'choix' ? 'affichageON' : 'affichageOFF'}>
+            <div>
+              <input type="image" src="https://zupimages.net/up/20/16/vmt5.jpg" className="weaponButton" onClick={() => this.selecteWeapon('rock')} alt="" />
+              <input type="image" src="https://zupimages.net/up/20/16/vjv7.jpg" className="weaponButton" onClick={() => this.selecteWeapon('paper')} alt="" />
+              <input type="image" src="https://zupimages.net/up/20/16/dfvh.jpg" className="weaponButton" onClick={() => this.selecteWeapon('scissors')} alt="" />
+            </div>
+            <button type="button" onClick={this.startGame}>Start</button>
           </div>
-          <div>
-            <button className="weaponButton" onClick={() => this.selecteWeapon('rock')} type="button">Rock</button>
-            <button className="weaponButton" onClick={() => this.selecteWeapon('paper')} type="button">Paper</button>
-            <button className="weaponButton" onClick={() => this.selecteWeapon('scissors')} type="button">Scissors</button>
+          <div className={this.state.interface === 'resultats' ? 'affichageON' : 'affichageOFF'}>
+            <div className="winner">
+              <Player weapon={playerTwo} />
+              {winner ? this.selectWinner() : null}
+              <Player weapon={playerOne} />
+            </div>
           </div>
-          <div className="winner">
-            {winner ? this.selectWinner() : null}
-          </div>
-          <button type="button" onClick={this.startGame}>Start</button>
         </>
       );
     }
