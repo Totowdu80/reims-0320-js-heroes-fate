@@ -1,8 +1,10 @@
-import Accueil from './components/accueil';
+import React from 'react';
+import Home from './components/Home';
+
 
 function App() {
   return (
-    Accueil
+    <Home />
   );
 }
 
