@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Player from './player';
 import './Game.css';
-import BtnAtt from './BtnAtt';
 
 const weapons = ['rock', 'paper', 'scissors'];
 
@@ -15,6 +14,7 @@ class Game extends Component {
       interface: 'button',
     };
   }
+
   activButton = () => {
     this.setState({
       interface: 'button',
@@ -67,13 +67,20 @@ class Game extends Component {
       });
     };
 
+    none = () => {
+      this.setState({
+        interface: 'none',
+      });
+    }
+
 
     render() {
       const { playerOne, playerTwo, winner } = this.state;
       return (
         <>
           <div className={this.state.interface === 'button' ? 'affichageON' : 'affichageOFF'} onClick={this.transition}>
-            <button type="button">Attack</button>
+            <button className="buttonad" type="button">Attack</button>
+            <button className="buttonad" type="button">Defence</button>
           </div>
           <div className={this.state.interface === 'choix' ? 'affichageON' : 'affichageOFF'}>
             <div>
@@ -81,13 +88,16 @@ class Game extends Component {
               <input type="image" src="https://zupimages.net/up/20/16/vjv7.jpg" className="weaponButton" onClick={() => this.selecteWeapon('paper')} alt="" />
               <input type="image" src="https://zupimages.net/up/20/16/dfvh.jpg" className="weaponButton" onClick={() => this.selecteWeapon('scissors')} alt="" />
             </div>
-            <button type="button" onClick={this.startGame}>Start</button>
+            <button type="button" className="buttonad" onClick={this.startGame}>Start</button>
           </div>
           <div className={this.state.interface === 'resultats' ? 'affichageON' : 'affichageOFF'}>
             <div className="winner">
               <Player weapon={playerTwo} />
               {winner ? this.selectWinner() : null}
               <Player weapon={playerOne} />
+            </div>
+            <div>
+              <button type="button" className="buttonad" onClick={this.none}>Continue</button>
             </div>
           </div>
         </>

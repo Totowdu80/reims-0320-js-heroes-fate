@@ -6,7 +6,7 @@ function Board() {
   return (
     <body>
       <div>
-        <BasicCard />
+       
       </div>
     </body>
   );
