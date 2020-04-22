@@ -57,7 +57,7 @@ class App extends React.Component {
             </Route>
 
             <Route path="/Board">
-              <Board heroes={heroes} />
+              {heroes.length > 0 && <Board heroes={heroes} />}
             </Route>
 
           </Switch>
