@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Player from './player';
 import './Game.css';
+import BtnAtt from './BtnAtt';
 
 const weapons = ['rock', 'paper', 'scissors'];
 
@@ -11,8 +12,19 @@ class Game extends Component {
       playerOne: weapons[0],
       playerTwo: weapons[0],
       winner: '',
-      interface: 'choix',
+      interface: 'button',
     };
+  }
+  activButton = () => {
+    this.setState({
+      interface: 'button',
+    });
+  }
+
+  transition = () => {
+    this.setState({
+      interface: 'choix',
+    });
   }
 
     startGame = () => {
@@ -55,10 +67,14 @@ class Game extends Component {
       });
     };
 
+
     render() {
       const { playerOne, playerTwo, winner } = this.state;
       return (
         <>
+          <div className={this.state.interface === 'button' ? 'affichageON' : 'affichageOFF'} onClick={this.transition}>
+            <button type="button">Attack</button>
+          </div>
           <div className={this.state.interface === 'choix' ? 'affichageON' : 'affichageOFF'}>
             <div>
               <input type="image" src="https://zupimages.net/up/20/16/vmt5.jpg" className="weaponButton" onClick={() => this.selecteWeapon('rock')} alt="" />
