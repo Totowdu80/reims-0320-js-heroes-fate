@@ -1,33 +1,63 @@
 import React from 'react';
 import {
-  BrowserRouter as Router, Switch, Route, Link 
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
 } from 'react-router-dom';
 import './App.css';
+import Axios from 'axios';
+
 import Board from './components/Board';
 import Home from './components/Home';
 
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      heroes: [],
+    };
+  }
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <Link exact to="/">Accueil</Link>
-        <Link to="/Board" className="buttonPlay">Play Now !</Link>
+  componentDidMount() {
+    const listHeroes = [
+      620,
+      687,
+    ];
 
-        <Switch>
+    for (let i = 0; i < listHeroes.length; i++) {
+      Axios.get(`https://www.superheroapi.com/api.php/10222496537945566/${listHeroes[i]}`)
+        .then((response) => response.data)
+        .then((data) => {
+          this.setState({
+            heroes: [...this.state.heroes, data],
+          });
+        });
+    }
+  }
 
-          <Route exact path="/">
-            <Home />
-          </Route>
+  render() {
+    return (
+      <Router>
+        <div>
+          <Link exact to="/">Accueil</Link>
+          <Link to="/Board" className="buttonPlay">Play Now !</Link>
 
-          <Route path="/Board">
-            <Board />
-          </Route>
+          <Switch>
 
-        </Switch>
-      </div>
-    </Router>
-  );
+            <Route exact path="/">
+              <Home />
+            </Route>
+
+            <Route path="/Board">
+              <Board />
+            </Route>
+
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;

@@ -7,6 +7,7 @@ const weapons = ['rock', 'paper', 'scissors'];
 class Game extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props.heroes);
     this.state = {
       playerOne: weapons[0],
       playerTwo: weapons[0],
