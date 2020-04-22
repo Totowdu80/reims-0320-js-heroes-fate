@@ -2,13 +2,13 @@ import React from 'react';
 import './App.css';
 import Game from './components/Game';
 import Board from './components/Board';
-import BtnAtt from './components/BtnAtt';
+import Home from './components/Home';
 
 function App() {
   return (
     <div>
       <header>
-        <BtnAtt />
+        <Home />
         <Game />
         <Board />
       </header>
