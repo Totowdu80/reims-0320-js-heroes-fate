@@ -1,14 +1,12 @@
 import React from 'react';
 import './Board.css';
-import BasicCard from './BasicCard/BasicCard';
+import EnnemyProfils from './EnnemyProfils';
 
-function Board() {
+function Board(props) {
   return (
-    <body>
       <div>
-       
+        <EnnemyProfils ennemy={props.heroes[0]}/>
       </div>
-    </body>
   );
 }
 
