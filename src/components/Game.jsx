@@ -12,8 +12,20 @@ class Game extends Component {
       playerOne: weapons[0],
       playerTwo: weapons[0],
       winner: '',
-      interface: 'choix',
+      interface: 'button',
     };
+  }
+
+  activButton = () => {
+    this.setState({
+      interface: 'button',
+    });
+  }
+
+  transition = () => {
+    this.setState({
+      interface: 'choix',
+    });
   }
 
     startGame = () => {
@@ -56,23 +68,37 @@ class Game extends Component {
       });
     };
 
+    none = () => {
+      this.setState({
+        interface: 'none',
+      });
+    }
+
+
     render() {
       const { playerOne, playerTwo, winner } = this.state;
       return (
         <>
+          <div className={this.state.interface === 'button' ? 'affichageON' : 'affichageOFF'} onClick={this.transition}>
+            <button className="buttonad" type="button">Attack</button>
+            <button className="buttonad" type="button">Defence</button>
+          </div>
           <div className={this.state.interface === 'choix' ? 'affichageON' : 'affichageOFF'}>
             <div>
               <input type="image" src="https://zupimages.net/up/20/16/vmt5.jpg" className="weaponButton" onClick={() => this.selecteWeapon('rock')} alt="" />
               <input type="image" src="https://zupimages.net/up/20/16/vjv7.jpg" className="weaponButton" onClick={() => this.selecteWeapon('paper')} alt="" />
               <input type="image" src="https://zupimages.net/up/20/16/dfvh.jpg" className="weaponButton" onClick={() => this.selecteWeapon('scissors')} alt="" />
             </div>
-            <button type="button" onClick={this.startGame}>Start</button>
+            <button type="button" className="buttonad" onClick={this.startGame}>Start</button>
           </div>
           <div className={this.state.interface === 'resultats' ? 'affichageON' : 'affichageOFF'}>
             <div className="winner">
               <Player weapon={playerTwo} />
               {winner ? this.selectWinner() : null}
               <Player weapon={playerOne} />
+            </div>
+            <div>
+              <button type="button" className="buttonad" onClick={this.none}>Continue</button>
             </div>
           </div>
         </>
