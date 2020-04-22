@@ -21,23 +21,30 @@ class App extends React.Component {
 
   componentDidMount() {
     const listHeroes = [
-      620,
       687,
+      620,
     ];
 
     for (let i = 0; i < listHeroes.length; i++) {
       Axios.get(`https://www.superheroapi.com/api.php/10222496537945566/${listHeroes[i]}`)
         .then((response) => response.data)
         .then((data) => {
+          const heroes = [...this.state.heroes, data]
+          heroes.sort((a, b) => (
+            // thx https://www.freecodecamp.org/forum/t/the-sort-method-behaves-different-on-different-browsers/237221
+            parseInt(a.id, 10) < parseInt(b.id, 10) ? 1 : -1
+          ));
           this.setState({
-            heroes: [...this.state.heroes, data],
+            heroes,
           });
         });
     }
   }
 
   render() {
+    const heroes = this.state.heroes;
     return (
+
       <Router>
         <div>
           <Link exact to="/">Accueil</Link>
@@ -50,7 +57,7 @@ class App extends React.Component {
             </Route>
 
             <Route path="/Board">
-              <Board />
+              <Board heroes={heroes} />
             </Route>
 
           </Switch>
