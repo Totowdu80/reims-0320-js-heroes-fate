@@ -37,6 +37,7 @@ class App extends React.Component {
   }
 
   render() {
+    const heroes = this.state.heroes;
     return (
       <Router>
         <div>
@@ -50,7 +51,7 @@ class App extends React.Component {
             </Route>
 
             <Route path="/Board">
-              <Board />
+              {heroes.length > 0 && <Board heroes={heroes} />}
             </Route>
 
           </Switch>

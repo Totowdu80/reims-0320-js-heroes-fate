@@ -1,15 +1,24 @@
 import React from 'react';
 import './Board.css';
-import BasicCard from './BasicCard/BasicCard';
+import PlayerStats from './PlayerStats';
+import Game from './Game';
 
-function Board() {
-  return (
-    <body>
+class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
+  render() {
+    return (
       <div>
-       
+        <Game />
+        <PlayerStats heroes={this.props.heroes} />
       </div>
-    </body>
-  );
+    )
+  }
 }
+
 
 export default Board;
