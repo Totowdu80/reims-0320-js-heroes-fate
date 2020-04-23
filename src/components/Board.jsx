@@ -13,6 +13,7 @@ class Board extends React.Component {
   render() {
     return (
       <div>
+        <EnnemyProfils ennemy={props.heroes[0]}/>
         <Game />
         <PlayerStats heroes={this.props.heroes} />
       </div>
