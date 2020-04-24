@@ -1,0 +1,19 @@
+.life{
+    background-color: crimson;
+    width: 50px;
+}
+
+.armor{
+    background-color: crimson;
+    width: 50px;
+}
+
+.imgHero {
+    border-radius: 50%;
+    width: 10%;
+}
+
+.container {
+    display: flex;
+    align-items: baseline;
+}
