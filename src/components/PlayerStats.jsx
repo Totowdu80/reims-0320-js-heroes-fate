@@ -13,11 +13,11 @@ class PlayerStats extends React.Component {
       <body>
         <div>
           <ul>
-            <li>Nom : {this.props.heroes[0].name}</li>
-            <li>Intelligence : {this.props.heroes[0].powerstats.intelligence}</li>
-            <li>Force : {this.props.heroes[0].powerstats.strength}</li>
-            <li>Vitesse : {this.props.heroes[0].powerstats.speed}</li>
-            <li>Puissance : {this.props.heroes[0].powerstats.power}</li>
+            <li>Nom :</li>
+            <li>Intelligence : </li>
+            <li>Force : </li>
+            <li>Vitesse : </li>
+            <li>Puissance : </li>
           </ul>
         </div>
       </body>

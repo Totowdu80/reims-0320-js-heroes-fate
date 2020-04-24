@@ -2,6 +2,7 @@ import React from 'react';
 import './Board.css';
 import PlayerStats from './PlayerStats';
 import Game from './Game';
+import EnnemyProfils from './EnnemyProfils';
 
 class Board extends React.Component {
   constructor(props) {
@@ -13,11 +14,11 @@ class Board extends React.Component {
   render() {
     return (
       <div>
-        <EnnemyProfils ennemy={props.heroes[0]}/>
+        <EnnemyProfils venom={this.props.heroes[0]} />
         <Game />
-        <PlayerStats heroes={this.props.heroes} />
+        <EnnemyProfils venom={this.props.heroes[0]} />
       </div>
-    )
+    );
   }
 }
 

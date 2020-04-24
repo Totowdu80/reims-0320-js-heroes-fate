@@ -7,13 +7,14 @@ class EnnemyProfils extends React.Component {
   }
 
   render() {
+    const venom = this.props.venom
     return (
       <div>
-        <img src={this.props.ennemy.image.url} />
-        <p>Vie = {this.props.ennemy.powerstats.durability * 10}</p>
-        <p>Defense = {this.props.ennemy.powerstats.power}</p>
+        <img src={venom.image.url} alt="" />
+        <p>Vie = {venom.powerstats.durability * 10}</p>
+        <p>Defense = {venom.powerstats.power}</p>
       </div>
-    )
+    );
   }
 }
 
