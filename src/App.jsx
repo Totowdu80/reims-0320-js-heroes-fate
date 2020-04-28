@@ -10,6 +10,8 @@ import Axios from 'axios';
 
 import Board from './components/Board';
 import Home from './components/Home';
+import UniverseList from './components/UniverseList';
+import HeroesList from './components/HeroesList';
 
 class App extends React.Component {
   constructor(props) {
@@ -49,6 +51,8 @@ class App extends React.Component {
         <div>
           <Link exact to="/">Accueil</Link>
           <Link to="/Board" className="buttonPlay">Play Now !</Link>
+          <Link to="UniverseList">Universe List</Link>
+          <Link to="HeroesList">Heroes List</Link>
 
           <Switch>
 
@@ -56,8 +60,16 @@ class App extends React.Component {
               <Home />
             </Route>
 
+            <Route exact path="/UniverseList">
+              <UniverseList />
+            </Route>
+
+            <Route exact path="/HeroesList">
+              {stateHeroes.length > 1 && <HeroesList heroes={stateHeroes} />}
+            </Route>
+
             <Route path="/Board">
-              {stateHeroes.length > 0 && <Board heroes={stateHeroes} />}
+              {stateHeroes.length > 1 && <Board heroes={stateHeroes} />}
             </Route>
 
           </Switch>
