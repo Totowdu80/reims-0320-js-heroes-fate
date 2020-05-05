@@ -3,15 +3,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  NavLink,
 } from 'react-router-dom';
-import './App.css';
 import Axios from 'axios';
+import './App.css';
 
-import Board from './components/Board';
-import Home from './components/Home';
-import UniverseList from './components/UniverseList';
-import HeroesList from './components/HeroesList';
+import Homepage from './components/Homepage/Homepage';
 
 class App extends React.Component {
   constructor(props) {
@@ -44,38 +41,35 @@ class App extends React.Component {
   }
 
   render() {
-    const stateHeroes = this.state.heroes;
-    return (
-
-      <Router>
+    const heroes = this.state.heroes;
+     return (
         <div>
-          <Link exact to="/">Accueil</Link>
-          <Link to="/Board" className="buttonPlay">Play Now !</Link>
-          <Link to="UniverseList">Universe List</Link>
-          <Link to="HeroesList">Heroes List</Link>
 
-          <Switch>
+            <Router>
+              <div>
+                <nav>
+                  <ul className="navbar">
+                    <li><NavLink activeClassName="active" exact to="/">Home</NavLink></li>
+                    <li><NavLink activeClassName="active" to="/instructions">Mentions Légales</NavLink></li>
+                  </ul>
+                </nav>
 
-            <Route exact path="/">
-              <Home />
-            </Route>
+                <Switch>
 
-            <Route exact path="/UniverseList">
-              <UniverseList />
-            </Route>
+                  <Route exact path="/">
+                    <Homepage heroes={heroes} />
+                  </Route>
 
-            <Route exact path="/HeroesList">
-              {stateHeroes.length > 1 && <HeroesList heroes={stateHeroes} />}
-            </Route>
+                  <Route path="/legalmention">
+                    <p>Here will be something</p>
+                  </Route>
 
-            <Route path="/Board">
-              {stateHeroes.length > 1 && <Board heroes={stateHeroes} />}
-            </Route>
+                </Switch>
+              </div>
+            </Router>
 
-          </Switch>
         </div>
-      </Router>
-    );
+    ); 
   }
 }
 
