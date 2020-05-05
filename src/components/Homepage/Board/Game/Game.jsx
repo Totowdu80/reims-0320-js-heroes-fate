@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
-import Player from './Player/Player';
 import './game.css';
-
-const weapons = ['rock', 'paper', 'scissors'];
 
 class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      playerOne: weapons[0],
-      playerTwo: weapons[0],
-      winner: '',
+      number: 0,
       interface: 'button',
-      vilainLife: 840,
-      vilainShield: 500,
-      heroLife: 600,
-      heroShield: 500,
     };
+//    this.doDamage = this.doDamage.bind(this);
+    this.attackturn = this.attackturn.bind(this);
+  }
+
+  
+
+  componentDidUpdate(prevProps, prevState) {
+    /*if (this.state.number !== prevState.number) {
+      this.doDamage();
+    }*/
   }
 
   activButton = () => {
@@ -30,133 +31,127 @@ class Game extends Component {
       interface: 'choix',
     });
   }
+  
+  /*doDamage() {
+    const random = 100;
+    console.log("Lancés = " + this.state.number)
 
-    startGame = () => {
-      let counter = 0;
-      const gameInterval = setInterval(() => {
-        counter += 1;
-        this.setState({
-          interface: 'resultats',
-          playerTwo: weapons[Math.floor(Math.random() * weapons.length)],
-          winner: '',
-        });
-
-        if (counter > 5) {
-          clearInterval(gameInterval);
-          this.setState({
-            winner: this.selectWinner(),
-          });
-        }
-      }, 100);
-    };
-
-    selectWinner = () => {
-      const { playerOne, playerTwo } = this.state;
-      if (playerOne === playerTwo) {
-        return "It's a tie!";
-      } if (
-        (playerOne === 'rock' && playerTwo === 'scissors')
-        || (playerOne === 'scissors' && playerTwo === 'paper')
-        || (playerOne === 'paper' && playerTwo === 'rock')
-      ) {
-        return <p className="resultText">You Win !</p>;
-      }
-      return <p className="resultText">You Lose !</p>;
-    };
-
-    selecteWeapon = (weapon) => {
+    if(random <= 5) {
+      console.log("Lancés :" + random)
+      console.log("Critical fail")
+    } else if (random >= 6 && random <= 79) {
+      console.log("Lancés :" + random)
+      console.log("Attaque ratée")
+    } else if (random >= 80 && random <= 94) {
+      console.log("Lancés :" + random)
+      console.log("Attaque réussie")
       this.setState({
-        playerOne: weapon,
-        winner: '',
-      });
-    };
+        venomLife: this.props.venomLife - (55),
+      })
+    } else {
+      console.log("Lancés :" + random)
+      console.log("Attaque critique")
+      this.setState({
+        venomLife: this.props.venomLife - (55 * 2),
+      }) 
+    }
+    this.setState({number : random});
+  }*/
 
-    none = () => {
+  attackturn() {
+    const dicePlayer = Math.floor(Math.random() * (Math.floor(100)));
+    const diceIA = Math.floor(Math.random() * (Math.floor(100)));
+    let attack = true
+    let critical = true
+    let defense = true
+
+    if(dicePlayer <= 5) {
+      attack = false
+      critical = true
+    } else if (dicePlayer >= 6 && dicePlayer <= 79) {
+      attack = false
+      critical = false
+    } else if (dicePlayer >= 80 && dicePlayer <= 94) {
+      attack = true
+      critical = false
+    } else {
+      attack = true
+      critical = true
+    }
+
+    if (diceIA <= 50) {
+      defense = false
+    } else {
+      defense = true
+    }
+
+    if (attack === true && critical === true && defense === false) {
+      this.setState({
+        venomLife: this.props.venomLife - (55 * 2),
+        number: dicePlayer,
+      }) 
+    } else if (attack === true && critical === false && defense === false) {
+      this.setState({
+        venomLife: this.props.venomLife - (55),
+        number: dicePlayer,
+      })
+    } else if (attack === true && critical === true && defense === true) {
+      this.setState({
+        venomLife: (this.props.venomLife + 50) - (55 * 2),
+        number: dicePlayer,
+      })
+    } else if (attack === true && critical === false && defense === true) {
+      this.setState({
+        venomLife: (this.props.venomLife + 50) - (55),
+        number: dicePlayer,
+      })
+    } else {
+      this.setState({
+        number: dicePlayer,
+      })
+    }
+  }
+
+
+
+  none = () => {
       this.setState({
         interface: 'none',
       });
     }
 
-
     render() {
-      const { playerOne, playerTwo, winner } = this.state;
-      const vilain = this.props.venom
-      const superhero = this.props.spidey
       return (
         <div>
-          <div className="interface__player">
-            <div className="life__container">
-              <p className="life__bar">{this.state.vilainLife}</p>
-              <p className="life__bar">{this.state.vilainShield}</p>
-            </div>
-            <div className="profile__container">
-              <img className="profile__img" src={vilain.image.url} alt='' />
-            </div>
-            <div className="playerstats__container">
-              <h2>Nom : {vilain.name}</h2>
-              <ul className="stats__list">
-                <li>Intelligence : {vilain.powerstats.intelligence}</li>
-                <li>Force : {vilain.powerstats.strength}</li>
-                <li>Vitesse : {vilain.powerstats.speed}</li>
-                <li>Puissance : {vilain.powerstats.power}</li>
-              </ul>
-            </div>
-          </div>
 
           <div className="interface__gameplay">
-            {this.state.interface === 'button' 
-            ? 
-            <div>
-              <input type="button" className="styled" onClick={this.transition} value="Attack !"/>
-              <input type="button" className="styled" onClick={this.transition} value="Defence !"/>
-            </div>
-            :
-             <> </> }
-
-            {this.state.interface === 'choix' 
-            ? 
-            <div>
+            {this.state.interface === 'button' && 
               <div>
-                <input type="image" src="https://zupimages.net/up/20/16/vmt5.jpg" className="weaponButton" onClick={() => this.selecteWeapon('rock')} alt="" />
-                <input type="image" src="https://zupimages.net/up/20/16/vjv7.jpg" className="weaponButton" onClick={() => this.selecteWeapon('paper')} alt="" />
-                <input type="image" src="https://zupimages.net/up/20/16/dfvh.jpg" className="weaponButton" onClick={() => this.selecteWeapon('scissors')} alt="" />
+                <input type="button" className="styled" onClick={this.transition} value="Attack 1"/>
+                <input type="button" className="styled" onClick={this.transition} value="Attack 2"/>
+                <input type="button" className="styled" onClick={this.transition} value="Attack 3"/>
               </div>
-              <input type="button" className="styled" onClick={this.startGame} value="Let's Fight !"/>
-            </div>
-            :
-             <> </> }
+            }
 
-            {this.state.interface === 'resultats' 
-            ? 
-            <div>
-              <div className="winner">
-                <Player weapon={playerTwo} />
-                {winner ? this.selectWinner() : null}
-                <Player weapon={playerOne} />
+            {this.state.interface === 'choix' &&
+              <div>
+                <div>
+                <button className='dice' type="button">{this.state.number}</button>
+                </div>
+                <input type="button" className="styled" onClick={this.attackturn} value="Lancez le dé!"/>-
               </div>
-              <input type="button" className="styled" onClick={this.none} value="Continue" />
-            </div>
-            :
-             <> </> }
-          </div>
+            }
 
-          <div className="interface__player">
-            <div className="life__container">
-              <p className="life__bar">{this.state.heroLife}</p>
-              <p className="life__bar">{this.state.heroLife}</p>
-            </div>
-            <div className="profile__container">
-              <img className="profile__img" src={superhero.image.url} alt='' />
-            </div>
-            <div className="playerstats__container">
-              <h2>Nom : {superhero.name}</h2>
-              <ul className="stats__list">
-                <li>Intelligence : {superhero.powerstats.intelligence}</li>
-                <li>Force : {superhero.powerstats.strength}</li>
-                <li>Vitesse : {superhero.powerstats.speed}</li>
-                <li>Puissance : {superhero.powerstats.power}</li>
-              </ul>
-            </div>
+            {this.state.interface === 'resultats' &&
+              <div>
+                <div>
+                <button className='dice' type="button">{this.state.number}</button>
+                </div>
+                <div>
+                <input type="button" className="styled" onClick={this.none} value="Continue" />
+                </div>
+              </div>
+            }
           </div>
         </div>
       );
