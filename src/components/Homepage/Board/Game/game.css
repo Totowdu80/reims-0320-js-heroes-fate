@@ -80,3 +80,15 @@ display: none;
   color: blanchedalmond;
   text-align: center;
 }
+
+.dice {
+  height: 100px;
+  width: 100px;
+  border-radius:12px;
+background: #f5f5f5;
+border:none;
+color:#555;
+font:bold 12px Verdana;
+padding:6px 0 6px 0;
+  box-shadow:1px 1px 3px #999;
+}
