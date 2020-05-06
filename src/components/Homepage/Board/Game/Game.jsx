@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import './game.css';
 
+import PlayerStats from '../PlayerStats/PlayerStats'
+import EnemyLife from '../EnemyLife/EnemyLife';
+
 class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      numberTwo : 0,
       number: 0,
       interface: 'button',
+      enemyLife: parseFloat(this.props.heroes[0].powerstats.power) * 2,
+      playerLife: parseFloat(this.props.heroes[1].powerstats.power) * 2,
     };
-//    this.doDamage = this.doDamage.bind(this);
     this.attackturn = this.attackturn.bind(this);
-  }
-
-  
-
-  componentDidUpdate(prevProps, prevState) {
-    /*if (this.state.number !== prevState.number) {
-      this.doDamage();
-    }*/
   }
 
   activButton = () => {
@@ -31,34 +28,10 @@ class Game extends Component {
       interface: 'choix',
     });
   }
-  
-  /*doDamage() {
-    const random = 100;
-    console.log("Lancés = " + this.state.number)
-
-    if(random <= 5) {
-      console.log("Lancés :" + random)
-      console.log("Critical fail")
-    } else if (random >= 6 && random <= 79) {
-      console.log("Lancés :" + random)
-      console.log("Attaque ratée")
-    } else if (random >= 80 && random <= 94) {
-      console.log("Lancés :" + random)
-      console.log("Attaque réussie")
-      this.setState({
-        venomLife: this.props.venomLife - (55),
-      })
-    } else {
-      console.log("Lancés :" + random)
-      console.log("Attaque critique")
-      this.setState({
-        venomLife: this.props.venomLife - (55 * 2),
-      }) 
-    }
-    this.setState({number : random});
-  }*/
 
   attackturn() {
+    const playerAttack = parseFloat(this.props.heroes[1].powerstats.strength)
+    const enemyDefense = (parseFloat(this.props.heroes[0].powerstats.durability) + parseFloat(this.props.heroes[0].powerstats.combat))/2
     const dicePlayer = Math.floor(Math.random() * (Math.floor(100)));
     const diceIA = Math.floor(Math.random() * (Math.floor(100)));
     let attack = true
@@ -68,10 +41,10 @@ class Game extends Component {
     if(dicePlayer <= 5) {
       attack = false
       critical = true
-    } else if (dicePlayer >= 6 && dicePlayer <= 79) {
+    } else if (dicePlayer >= 6 && dicePlayer <= 49) {
       attack = false
       critical = false
-    } else if (dicePlayer >= 80 && dicePlayer <= 94) {
+    } else if (dicePlayer >= 50 && dicePlayer <= 94) {
       attack = true
       critical = false
     } else {
@@ -87,27 +60,32 @@ class Game extends Component {
 
     if (attack === true && critical === true && defense === false) {
       this.setState({
-        venomLife: this.props.venomLife - (55 * 2),
+        enemyLife: this.state.enemyLife - (playerAttack * 2),
         number: dicePlayer,
+        numberTwo: diceIA,
       }) 
     } else if (attack === true && critical === false && defense === false) {
       this.setState({
-        venomLife: this.props.venomLife - (55),
+        enemyLife: this.state.enemyLife - (playerAttack),
         number: dicePlayer,
+        numberTwo: diceIA,
       })
     } else if (attack === true && critical === true && defense === true) {
       this.setState({
-        venomLife: (this.props.venomLife + 50) - (55 * 2),
+        enemyLife: (this.state.enemyLife + enemyDefense) - (playerAttack * 2),
         number: dicePlayer,
+        numberTwo: diceIA,
       })
     } else if (attack === true && critical === false && defense === true) {
       this.setState({
-        venomLife: (this.props.venomLife + 50) - (55),
+        enemyLife: (this.state.enemyLife + enemyDefense) - (playerAttack),
         number: dicePlayer,
+        numberTwo: diceIA,
       })
     } else {
       this.setState({
         number: dicePlayer,
+        numberTwo: diceIA,
       })
     }
   }
@@ -123,6 +101,9 @@ class Game extends Component {
     render() {
       return (
         <div>
+          <div>
+            {this.props.heroes.length > 1 && <EnemyLife venom={this.props.heroes[0]} enemyLife={this.state.enemyLife} />}
+          </div>
 
           <div className="interface__gameplay">
             {this.state.interface === 'button' && 
@@ -135,7 +116,8 @@ class Game extends Component {
 
             {this.state.interface === 'choix' &&
               <div>
-                <div>
+                <div className='dice__plateau'>
+                <button className='dice' type="button">{this.state.numberTwo}</button>
                 <button className='dice' type="button">{this.state.number}</button>
                 </div>
                 <input type="button" className="styled" onClick={this.attackturn} value="Lancez le dé!"/>-
@@ -152,6 +134,10 @@ class Game extends Component {
                 </div>
               </div>
             }
+          </div>
+
+          <div>
+            {this.props.heroes.length > 1 && <PlayerStats spidey={this.props.heroes[1]} playerLife={this.state.playerLife} />}
           </div>
         </div>
       );

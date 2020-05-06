@@ -6,7 +6,7 @@ import {
   NavLink,
 } from 'react-router-dom';
 import TheGame from './Home/TheGame';
-import Board from './Board/Board';
+import Game from './Board/Game/Game';
 import Instruction from './Instructions/instruction'
 
 class Homepage extends React.Component {
@@ -47,7 +47,7 @@ class Homepage extends React.Component {
             </Switch>
           </div>
           <div className={this.state.screen === 'board' ? 'board__container' : 'hidden'}>
-            {this.props.heroes.length > 1 && <Board heroes={this.props.heroes} />}
+            {this.props.heroes.length > 1 && <Game heroes={this.props.heroes} />}
           </div>
         </div>
 
