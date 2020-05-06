@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import TheGame from './Home/TheGame';
 import Game from './Board/Game/Game';
+import Instruction from './Instructions/instruction'
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class Homepage extends React.Component {
                 <TheGame heroes={this.props.heroes} changeScreen={this.changeScreen} />
               </Route>
               <Route path="/rules">
-                <p>This is the rules</p>
+                <Instruction />
               </Route>
             </Switch>
           </div>
