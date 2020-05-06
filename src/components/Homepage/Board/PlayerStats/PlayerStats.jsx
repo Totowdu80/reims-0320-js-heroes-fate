@@ -10,14 +10,21 @@ class PlayerStats extends React.Component {
 
   render() {
     return (
-      <div className="playerstats__container">
-        <ul className="stats__list">
-          <li>Nom : {this.props.heroes[0].name}</li>
-          <li>Intelligence : {this.props.heroes[0].powerstats.intelligence}</li>
-          <li>Force : {this.props.heroes[0].powerstats.strength}</li>
-          <li>Vitesse : {this.props.heroes[0].powerstats.speed}</li>
-          <li>Puissance : {this.props.heroes[0].powerstats.power}</li>
-        </ul>
+      <div className="interface__player">
+        <div className="life__container">
+          <p className="life__bar">{this.props.playerLife}</p>
+        </div>
+        <div className="profile__container">
+          <img className="player-image" src={this.props.spidey.image.url} alt='Player Avatar' />
+        </div>
+        <div className="playerstats__container">
+          <h2>Nom : {this.props.spidey.name} </h2>
+          <ul className="stats__list">
+            <li>Initiative : {(parseFloat(this.props.spidey.powerstats.intelligence) + parseFloat(this.props.spidey.powerstats.speed))/2} </li>
+            <li>Attaque : {parseFloat(this.props.spidey.powerstats.strength)} </li>
+            <li>Résistence : {(parseFloat(this.props.spidey.powerstats.durability) + parseFloat(this.props.spidey.powerstats.combat))/2} </li>
+          </ul>
+        </div>
       </div>
     );
   }

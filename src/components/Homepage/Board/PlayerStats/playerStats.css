@@ -16,3 +16,8 @@
   margin: 0px;
   padding: 0px;
 }
+
+.player-image {
+  border-radius: 50%;
+  height: 200px;
+}
