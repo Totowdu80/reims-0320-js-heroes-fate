@@ -3,12 +3,6 @@
   background-size: 100%;
 } */
 
-.board__container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    background-color: red
-  }
   
   .interface__enemy {
     display: flex;
@@ -18,21 +12,7 @@
     margin: 0px;
   }
   
-  .interface__gameplay {
-    display: flex;
-    height: 800px;
-    justify-content: center;
-    align-items: center;
-    background-image: url('https://zupimages.net/up/20/16/a3ce.jpg');
-    background-size: 100%;
-  }
-  
-  .interface__player {
-    display: flex;
-    height: 200px;
-    background-color: blueviolet;
-    justify-content: space-around;
-  }
+
   
   .life__container {
     width: 200px;
