@@ -1,5 +1,6 @@
 import React from 'react';
-import './enemyLife.css'
+import './enemyLife.css';
+import '../Game/game.css';
 
 class EnemyLife extends React.Component {
   constructor(props) {
@@ -9,12 +10,12 @@ class EnemyLife extends React.Component {
 
   render() {
     return (
-      <div className="interface__player">
+      <div className="interface__ennemi">
         <div className="life__container">
           <p className="life__bar">{this.props.enemyLife}</p>
         </div>
         <div className="profile__container">
-          <img className="player-image" src={this.props.venom.image.url} alt='Enemy Avatar' />
+          <img className="ennemi-image" src={this.props.venom.image.url} alt='Enemy Avatar' />
         </div>
         <div className="playerstats__container">
           <h2>Nom : {this.props.venom.name} </h2>

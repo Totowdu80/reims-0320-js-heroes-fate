@@ -31,6 +31,7 @@
   background-color: grey;
   justify-content: space-around;
   align-items: flex-end;
+  height: 8rem;
 } 
 
 .playerstats__container {
@@ -57,17 +58,38 @@
   align-items: baseline;
 }
 
+.player-image {
+  display: flex;
+  border-radius: 50%;
+  height: 200px;
+}
+
+.ennemi-image {
+  display: flex;
+  border-radius: 50%;
+  height: 200px;
+  align-items: flex-end;
+}
+
+
+
 /*--------------------------------------------------------------*/
 /*----------------------------EnnemiBar CSS---------------------*/
 /*--------------------------------------------------------------*/
 
 .interface__enemy {
   display: flex;
-  height: 200px;
   background-color: grey;
   justify-content: space-around;
   margin: 0px;
 }
+
+.interface__ennemi {
+  display: flex;
+  background-color: grey;
+  justify-content: space-around;
+  height: 8rem;
+} 
 
 
 /*--------------------------------------------------------------*/
@@ -134,29 +156,4 @@ padding:6px 0 6px 0;
   width: 100px;
   margin: 20px;
 }
-
-
-
-
-
-
-
-.affichageON {
-}
-
-.affichageOFF {
-display: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
