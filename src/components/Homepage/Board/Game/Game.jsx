@@ -187,7 +187,7 @@ class Game extends Component {
 
   render() {
     return (
-      <div>
+      <div className="backgroundAll">
         <div>
           {this.props.heroes.length > 1 && <EnemyLife venom={this.props.heroes[0]} enemyLife={this.state.enemyLife} />}
         </div>
@@ -295,66 +295,3 @@ class Game extends Component {
 }
 
 export default Game;
-
-/* {this.state.interface === 0
-            && (
-            <div>
-              <p>Your Turn</p>
-              <input type="button" className="styled" onClick={this.transition} value="Continue" />
-            </div>
-            )}
-
-          {this.state.interface === 1
-              && (
-              <div>
-                <input type="button" className="styled" onClick={this.transition} value="Attack 1" />
-                <input type="button" className="styled" onClick={this.transition} value="Attack 2" />
-                <input type="button" className="styled" onClick={this.transition} value="Attack 3" />
-              </div>
-              )}
-
-          {this.state.interface === 2
-              && (
-              <div>
-                <div className="dice__plateau">
-                  <button className="dice" type="button">{this.state.numberTwo}</button>
-                  <button className="dice" type="button">{this.state.number}</button>
-                </div>
-                <input type="button" className="styled" onClick={this.attackturn} value="Lancez le dé!" />
-                -
-              </div>
-              )}
-
-          {this.state.interface === 3
-              && (
-              <div>
-                <div>
-                  <button className="dice" type="button">{this.state.number}</button>
-                </div>
-                <div>
-                  <input type="button" className="styled" onClick={this.transition} value="Continue" />
-                </div>
-              </div>
-              )}
-
-          {this.state.interface === 4
-              && (
-              <div>
-                <input type="button" className="styled" onClick={this.transition} value="Defense 1" />
-                <input type="button" className="styled" onClick={this.transition} value="Defense 2" />
-                <input type="button" className="styled" onClick={this.transition} value="Defense 3" />
-              </div>
-              )}
-
-          {this.state.interface === 5
-              && (
-              <div>
-                <div className="dice__plateau">
-                  <button className="dice" type="button">{this.state.numberTwo}</button>
-                  <button className="dice" type="button">{this.state.number}</button>
-                </div>
-                <input type="button" className="styled" onClick={this.defenseturn} value="Lancez le dé!" />
-                -
-              </div>
-              )}
-*/
