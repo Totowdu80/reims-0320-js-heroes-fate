@@ -17,8 +17,8 @@ class PlayerStats extends React.Component {
         <div className="profile__container">
           <img className="player-image" src={this.props.spidey.image.url} alt='Player Avatar' />
         </div>
+        <h2 className="playerName">{this.props.spidey.name} </h2>
         <div className="playerstats__container">
-          <h2>Nom : {this.props.spidey.name} </h2>
           <ul className="stats__list">
             <li>Initiative : {(parseFloat(this.props.spidey.powerstats.intelligence) + parseFloat(this.props.spidey.powerstats.speed))/2} </li>
             <li>Attaque : {parseFloat(this.props.spidey.powerstats.strength)} </li>

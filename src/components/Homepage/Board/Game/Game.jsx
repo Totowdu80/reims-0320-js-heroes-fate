@@ -100,7 +100,7 @@ class Game extends Component {
 
     render() {
       return (
-        <div>
+        <div className="backgroundAll">
           <div>
             {this.props.heroes.length > 1 && <EnemyLife venom={this.props.heroes[0]} enemyLife={this.state.enemyLife} />}
           </div>
