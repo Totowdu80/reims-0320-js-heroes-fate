@@ -9,16 +9,20 @@
 /*----------------------------Global CSS------------------------*/
 /*--------------------------------------------------------------*/
 
-.board__container {
+.globalContainer {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  height: 100%;
+  width: 100%;
+  
 }
 
 .interface__gameplay {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 22rem;
 }
 
 
@@ -32,21 +36,26 @@
   justify-content: space-around;
   align-items: flex-end;
   height: 8rem;
+  border-radius: 10% 10% 0 0;
 } 
 
 .playerstats__container {
-  background-color: whitesmoke;
-  height: 200px;
-  width: 400px;
+
   margin: 0px;
   padding: 0px;
   justify-content: center;
   align-items: center;
+  height: 5rem;
+
+}
+
+.playerName {
+  font-size: 3rem;
 }
 
 .stats__list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   list-style: none;
   margin: 0px;
@@ -77,18 +86,14 @@
 /*----------------------------EnnemiBar CSS---------------------*/
 /*--------------------------------------------------------------*/
 
-.interface__enemy {
-  display: flex;
-  background-color: grey;
-  justify-content: space-around;
-  margin: 0px;
-}
+
 
 .interface__ennemi {
   display: flex;
   background-color: grey;
   justify-content: space-around;
   height: 8rem;
+  border-radius: 0 0 10% 10%;
 } 
 
 

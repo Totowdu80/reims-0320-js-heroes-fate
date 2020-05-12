@@ -18,7 +18,7 @@ class EnemyLife extends React.Component {
           <img className="ennemi-image" src={this.props.venom.image.url} alt='Enemy Avatar' />
         </div>
         <div className="playerstats__container">
-          <h2>Nom : {this.props.venom.name} </h2>
+          <h2>{this.props.venom.name} </h2>
           <ul className="stats__list">
             <li>Initiative : {(parseFloat(this.props.venom.powerstats.intelligence) + parseFloat(this.props.venom.powerstats.speed))/2} </li>
             <li>Attaque : {parseFloat(this.props.venom.powerstats.strength)} </li>
