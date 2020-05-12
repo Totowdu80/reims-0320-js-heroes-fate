@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import Axios from 'axios';
 import './App.css';
+import './components/Homepage/Board/Game/game.css';
 
 import Homepage from './components/Homepage/Homepage';
 
@@ -46,7 +47,7 @@ class App extends React.Component {
         <div>
 
             <Router>
-              <div>
+              <div className="globalContainer">
                 <nav>
                   <ul className="navbar">
                     <li><NavLink activeClassName="active" exact to="/">Home</NavLink></li>
