@@ -123,3 +123,51 @@ body {
 .littleBlock__text {
   border-top: 2px solid #ff65fb;
 }
+
+
+
+
+/*----------------------HeroesList-----------------*/
+
+
+.heroChoice {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroStats {
+  display: flex;
+  background-color: black;
+  justify-content: space-around;
+}
+
+.imageStats {
+  height: 10vh;
+}
+
+.imgHero {
+  display: flex;
+  height: 83vh;
+}
+
+.stats {
+  margin: 0;
+}
+
+.choicePage {
+  display: flex;
+  width: 100%;
+  background-image: url(https://zupimages.net/up/20/20/zoau.jpg);
+  justify-content: space-around;
+}
+
+.heroChoice:hover {
+  opacity: 0.5;
+}
+
+.heroName {
+  position: absolute;
+  font-size: 9vh;
+  margin-left: 9vh;
+  margin-top: 0;
+}

@@ -11,6 +11,7 @@ import './App.css';
 import Homepage from './components/Homepage/Homepage';
 import Instruction from './components/Homepage/Instructions/instruction';
 import Game from './components/Homepage/Board/Game/Game';
+import HeroesList from './components/HeroesList';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class App extends React.Component {
     };
     this.switchToRules = this.switchToRules.bind(this);
     this.switchToPlay = this.switchToPlay.bind(this);
+    this.switchToChoice = this.switchToChoice.bind(this);
   }
 
   componentDidMount() {
@@ -57,13 +59,21 @@ class App extends React.Component {
     });
   }
 
+  switchToChoice() {
+    this.setState({
+      currentPage: 'choice',
+    });
+  }
+
   render() {
     return (
       <div>
         <div>
-          {this.state.currentPage === 'homepage' && <Homepage clickRules={this.switchToRules} clickPlay={this.switchToPlay} />}
+          {this.state.currentPage === 'homepage' && <Homepage clickRules={this.switchToRules} clickPlay={this.switchToPlay} clickChoice={this.switchToChoice} />}
         </div>
-
+        <div>
+          {this.state.currentPage === 'choice' && <HeroesList heroes={this.state.heroes} />}
+        </div>
         <div>
           {this.state.currentPage === 'rules' && (
           <Router>
