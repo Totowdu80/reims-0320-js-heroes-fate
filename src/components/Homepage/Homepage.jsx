@@ -59,6 +59,27 @@ class Homepage extends React.Component {
               <img className="sectionTwo__img" src="https://purepng.com/public/uploads/medium/purepng.com-spider-manspider-manspidermansuperherocomic-bookmarvel-comicscharacterstan-lee-1701528654990oleyd.png" alt="Logo Hero Fate" />
             </div>
           </section>
+          <section>
+            <div className="footer__container">
+              <ul>
+                <img src="https://zupimages.net/up/20/20/te5i.png" alt="" />
+              </ul>
+              <ul>
+                <h2>Liens Sociaux</h2>
+                <li><a href="https://example.com">Anthony Lucci</a></li>
+                <li><a href="https://example.com">Julien Nicaise</a></li>
+                <li><a href="https://example.com">Cécyl Lang</a></li>
+              </ul>
+              <ul>
+                <h2>Liens Wild</h2>
+                <li>Logo Heroes Fate</li>
+              </ul>
+              <ul>
+                <h2>Ressources</h2>
+                <li>API Super-Héros</li>
+              </ul>
+            </div>
+          </section>
         </div>
       </div>
     );

@@ -124,7 +124,35 @@ body {
   border-top: 2px solid #ff65fb;
 }
 
+.footer__container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  color: whitesmoke;
+  text-decoration: none;
+}
 
+.footer__container ul {
+  margin: 30px 0px 40px 0px;
+  padding: 0;
+}
+
+.footer__container ul li {
+  list-style: none;
+  text-decoration: none;
+  text-align: center;
+}
+
+.footer__container ul li a {
+  list-style: none;
+  text-decoration: none;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.footer__container ul img {
+  width: 150px;
+}
 
 
 /*----------------------HeroesList-----------------*/
