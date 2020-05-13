@@ -18,10 +18,10 @@ class HeroesList extends Component {
     const resistance = Math.floor((combat + durability) / 2);
     return (
       <div className="choicePage">
-        <div className="heroChoice">
+        <div onClick={this.props.clickPlay} className="heroChoice">
           <div>
-            <p className="heroName">{this.props.heroes[1].name}</p>
             <img className='imgHero' src={this.props.heroes[1].image.url} alt="" />
+            <p className="heroName">{this.props.heroes[1].name}</p>
           </div>
           <div className="heroStats">
             <div>
@@ -43,10 +43,10 @@ class HeroesList extends Component {
           </div>
         </div>
 
-        <div className="heroChoice">
+        <div onClick={this.props.clickPlay} className="heroChoice">
           <div>
-            <p className="heroName">{this.props.heroes[0].name}</p>
             <img className='imgHero' src={this.props.heroes[0].image.url} alt="" />
+            <p className="heroName">{this.props.heroes[0].name}</p>
           </div>
           <div className="heroStats">
             <div>
@@ -68,10 +68,10 @@ class HeroesList extends Component {
           </div>
         </div>
 
-        <div className="heroChoice">
+        <div onClick={this.props.clickPlay} className="heroChoice">
           <div>
-            <p className="heroName">{this.props.heroes[1].name}</p>
             <img className='imgHero' src={this.props.heroes[1].image.url} alt="" />
+            <p className="heroName">{this.props.heroes[1].name}</p>
           </div>
           <div className="heroStats">
             <div>

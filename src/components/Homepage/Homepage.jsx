@@ -24,7 +24,7 @@ class Homepage extends React.Component {
               </button>
               <button
                 className="homeButton"
-                onClick={this.props.clickPlay}
+                onClick={this.props.clickUniverse}
                 type="button"
               >
                 <span>Play</span>
@@ -40,6 +40,7 @@ class Homepage extends React.Component {
                 <p className="Slogan">Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
                 <div className="block__container">
                   <div className="littleBlock">
+                    <button onClick={this.props.clickUniverse} type="button" >Choose your universe !</button>
                     <button onClick={this.props.clickChoice} type="button">choose your hero !</button>
                     <div className="littleBlock__text">
                       <p>Différents Univers ...</p>
