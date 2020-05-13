@@ -46,10 +46,12 @@ body {
   flex-direction: column;
   align-items: center;
   padding-bottom: 60px;
+  padding-top: 50px;
 }
 
 .button__container {
   display: flex;
+  margin-bottom: 40px;
 }
 .homeButton {
   border: none;
@@ -79,14 +81,29 @@ body {
 .sectionTwo {
   background-color: black;
   border-bottom: 2px solid #ff65fb;
-  height: 600px;
+  height: 550px;
+  display: flex;
 }
 
-.sectionTwo__container {
+.sectionTwo__leftcontainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: whitesmoke;
+  width: 60vw;
+}
+
+.sectionTwo__rightcontainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: whitesmoke;
+  width: 40vw;
+  background-color: blueviolet;
+}
+
+.img_righcontainer {
+  width: 1000px;
 }
 
 .sectionTwo__textcontainer {
@@ -138,9 +155,16 @@ body {
 }
 
 .footer__container ul li {
+  display: flex;
+  align-items: center;
   list-style: none;
   text-decoration: none;
   text-align: center;
+  justify-content: center;
+}
+
+.footer__container ul li img {
+  width: 2.5rem;
 }
 
 .footer__container ul li a {
@@ -151,7 +175,7 @@ body {
 }
 
 .footer__container ul img {
-  width: 150px;
+  width: 200px;
 }
 
 

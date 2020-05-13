@@ -34,7 +34,7 @@ class Homepage extends React.Component {
 
           <img className="separation__img" src="https://rocketleague.media.zestyio.com/rl_rp6_down-arrow_7917.png" alt="" />
           <section className="sectionTwo">
-            <div className="sectionTwo__container">
+            <div className="sectionTwo__leftcontainer">
               <div className="sectionTwo__textcontainer">
                 <h2>Bienvenue sur Heroes Fate</h2>
                 <p className="Slogan">Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
@@ -56,8 +56,12 @@ class Homepage extends React.Component {
                   </div>
                 </div>
               </div>
-              <img className="sectionTwo__img" src="https://purepng.com/public/uploads/medium/purepng.com-spider-manspider-manspidermansuperherocomic-bookmarvel-comicscharacterstan-lee-1701528654990oleyd.png" alt="Logo Hero Fate" />
             </div>
+            <div className="sectionTwo__rightcontainer">
+              <img className="img_righcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
+            </div>
+          </section>
+          <section className="sectionTwo">
           </section>
           <section>
             <div className="footer__container">
@@ -66,17 +70,20 @@ class Homepage extends React.Component {
               </ul>
               <ul>
                 <h2>Liens Sociaux</h2>
-                <li><a href="https://example.com">Anthony Lucci</a></li>
-                <li><a href="https://example.com">Julien Nicaise</a></li>
-                <li><a href="https://example.com">Cécyl Lang</a></li>
+                <li><a href="https://www.linkedin.com/in/anthony-lucci-62b8a911a/">Anthony Lucci</a>
+                <img src="https://zupimages.net/up/20/20/8pdo.png" alt="linkedin icone" /></li>
+                <li><a href="https://www.linkedin.com/in/julien-nicaise-64b0641a4/">Julien Nicaise</a>
+                <img src="https://zupimages.net/up/20/20/8pdo.png" alt="linkedin icone" /></li>
+                <li><a href="https://www.linkedin.com/in/c%C3%A9cyl-lang-b21948194/">Cécyl Lang </a>
+                <img src="https://zupimages.net/up/20/20/8pdo.png" alt="linkedin icone" /></li>
               </ul>
               <ul>
                 <h2>Liens Wild</h2>
-                <li>Logo Heroes Fate</li>
+                <li><a href="https://www.wildcodeschool.com/fr-FR">Wild Code School</a></li>
               </ul>
               <ul>
                 <h2>Ressources</h2>
-                <li>API Super-Héros</li>
+                <li><a href="https://superheroapi.com/">API Super-Héros</a></li>
               </ul>
             </div>
           </section>
