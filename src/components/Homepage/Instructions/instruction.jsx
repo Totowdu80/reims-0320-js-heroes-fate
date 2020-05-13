@@ -6,14 +6,14 @@ function Instruction() {
     <div className="rulescontainer">
       <h1 className="titleInstruction"> Bienvenue dans Heroes Fate</h1>
       <div className="rulesintro">
-      <p>
-        Heroes Fate est un jeu de combat dans lequel vous incarnez un héros et revivez son histoire.
+        <p>
+          Heroes Fate est un jeu de combat dans lequel vous incarnez un héros et revivez son histoire.
       </p>
-      <p>
-        Dans un premier temps, vous allez devoir choisir entre plusieurs univers et une fois cela fait, un seconde choix se fera sur votre héros.
+        <p>
+          Dans un premier temps, vous allez devoir choisir entre plusieurs univers et une fois cela fait, un seconde choix se fera sur votre héros.
       </p>
-      <p>
-        Vous avez bien choisi votre univers et votre héro ? Très bien, le jeu peut alors commencer !
+        <p>
+          Vous avez bien choisi votre univers et votre héro ? Très bien, le jeu peut alors commencer !
         </p>
       </div>
 
@@ -22,19 +22,24 @@ function Instruction() {
       <div className="rulesintracontainer">
         <p>
           Avant toute chose, jetons un oeil à ce qui s'affiche sur votre écran :
-        </p>
+          </p>
         <p>
           En haut de ce dernier, vous pouvez apercevoir la partie d'interface concernant votre ennemi : son nom, son avatar, ses points de vie ainsi que ses différentes statistiques
-        </p>
+          </p>
         <p>
           Au centre de votre écran se trouve le plateau de jeu, dans lequel toutes les actions principales vont se dérouler et dans lequel vont s'enchainer des tours endiablés de combat
           entre votre héro et son ennemi.
-        </p>
+          </p>
         <p>
           Enfin, au bas de votre écran se trouve, la partie d'interface de votre héro qui, tout comme votre ennemi, présentera son nom, son avatar, sa vie ainsi que ses stats
-        </p>
+          </p>
       </div>
-<h2 className="subtitlerules">Phase de combats</h2>
+      <div>
+        <img className="imgPlateau" src="https://zupimages.net/up/20/20/a9ky.png" alt="Plateau du jeu avec zone pré selectioner " />
+      </div>
+
+
+      <h2 className="subtitlerules">Phase de combats</h2>
 
       <div className="rulesintracontainer">
         <p>
@@ -55,17 +60,27 @@ function Instruction() {
           3 choix différents tout comme l'attaque avec également un taux de réussite dépend des dégâts bloqués. Tout comme l'attaque, une fois le choix fait, un dé est alors lancé afin de définir
           si oui ou non la défense est réussie ou pas.
         </p>
+        <div>
+          <img className="imgPlateau" src="https://zupimages.net/up/20/20/s7f3.png" alt="choix d'attaque" />
+        </div>
         <p>
           Une fois ces choix fait par chacun des joueurs et les dés lancés, le combat commence alors et si réussite il y a alors l'attaquant infligera des dégats au défenseur dépendant de sa réussite
           également.
         </p>
-<p>
-          Une fois cette phase terminée, les rôles sont inversés, le défenseur devient attaquant et l'attaquant devient défenseur, et les combats s'enchainent ainsi de suite jusqu'à ce qu'un des deux
-          joueurs atteignent 0 points de vie. Le joueur à 0 sera alors déclaré perdant et son adversaire remportera la partie !
-        </p>
-      </div>
+        <div className="instrucPart1">
 
-      <p className="outro">Tout cela semble clair pour vous ? Alors lancez vous et allez ré-écrire l'histoire de votre héro préféré !</p>
+          <p>
+            Une fois cette phase terminée, les rôles sont inversés, le défenseur devient attaquant et l'attaquant devient défenseur, et les combats s'enchainent ainsi de suite jusqu'à ce qu'un des deux
+            joueurs atteignent 0 points de vie. Le joueur à 0 sera alors déclaré perdant et son adversaire remportera la partie !
+          </p>
+          <div>
+            <img className="imgPlateau" src="https://zupimages.net/up/20/20/483w.png" alt="lancer de dée" />
+          </div>
+        </div>
+        <div>
+          <p className="outro">Tout cela semble clair pour vous ? Alors lancez vous et allez ré-écrire l'histoire de votre héro préféré !</p>
+        </div>
+      </div>
     </div>
   );
 }
