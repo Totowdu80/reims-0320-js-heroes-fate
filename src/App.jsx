@@ -18,8 +18,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      allHeroes: [],
       heroes: [],
       currentPage: 'homepage',
+      wantedUniverse: 'marvel',
     };
     this.switchToRules = this.switchToRules.bind(this);
     this.switchToPlay = this.switchToPlay.bind(this);
@@ -29,23 +31,28 @@ class App extends React.Component {
 
   componentDidMount() {
     const listHeroes = [
-      687,
-      620,
+      { universe: 'marvel', ids: [687, 620] },
+      { universe: 'starwars', ids: [729, 418] },
+      { universe: 'dc', ids: [70, 144] },
     ];
 
     for (let i = 0; i < listHeroes.length; i++) {
-      Axios.get(`https://www.superheroapi.com/api.php/10222496537945566/${listHeroes[i]}`)
-        .then((response) => response.data)
-        .then((data) => {
-          const heroes = [...this.state.heroes, data];
-          heroes.sort((a, b) => (
-            // thx https://www.freecodecamp.org/forum/t/the-sort-method-behaves-different-on-different-browsers/237221
-            parseInt(a.id, 10) < parseInt(b.id, 10) ? 1 : -1
-          ));
-          this.setState({
-            heroes,
+      const universe = listHeroes[i].universe;
+      const ids = listHeroes[i].ids;
+      for (let j = 0; j < ids.length; j++) {
+        Axios.get(`https://www.superheroapi.com/api.php/10222496537945566/${ids[j]}`)
+          .then((response) => response.data)
+          .then((data) => {
+            const allHeroes = [...this.state.allHeroes, { ...data, universe }];
+            allHeroes.sort((a, b) => (
+              // thx https://www.freecodecamp.org/forum/t/the-sort-method-behaves-different-on-different-browsers/237221
+              parseInt(a.id, 10) < parseInt(b.id, 10) ? 1 : -1
+            ));
+            this.setState({
+              allHeroes,
+            });
           });
-        });
+      }
     }
   }
 
@@ -61,8 +68,9 @@ class App extends React.Component {
     });
   }
 
-  switchToChoice() {
+  switchToChoice(props) {
     this.setState({
+      wantedUniverse: props,
       currentPage: 'choice',
     });
   }
@@ -80,7 +88,7 @@ class App extends React.Component {
           {this.state.currentPage === 'homepage' && <Homepage clickRules={this.switchToRules} clickPlay={this.switchToPlay} clickChoice={this.switchToChoice} clickUniverse={this.switchToUniverse} />}
         </div>
         <div>
-          {this.state.currentPage === 'choice' && <HeroesList heroes={this.state.heroes} clickPlay={this.switchToPlay} />}
+          {this.state.currentPage === 'choice' && <HeroesList heroes={this.state.allHeroes.filter((hero) => hero.universe === this.state.wantedUniverse)} clickPlay={this.switchToPlay} />}
         </div>
         <div>
           {this.state.currentPage === 'universe' && <UniverseList clickChoice={this.switchToChoice} />}
@@ -114,7 +122,7 @@ class App extends React.Component {
 
         <div>
           {this.state.currentPage === 'board' && (
-            this.state.heroes.length > 1 && <Game heroes={this.state.heroes} />) }
+            <Game heroes={this.state.heroes} />) }
         </div>
 
 
