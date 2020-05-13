@@ -40,3 +40,14 @@
     text-align: center;
     font-style: italic;
 }
+
+.imgPlateau {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.instrucPart1 {
+    display: flex;
+    flex-direction: row ;
+}
