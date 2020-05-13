@@ -11,6 +11,8 @@ import './App.css';
 import Homepage from './components/Homepage/Homepage';
 import Instruction from './components/Homepage/Instructions/instruction';
 import Game from './components/Homepage/Board/Game/Game';
+import HeroesList from './components/HeroesList';
+import UniverseList from './components/UniverseList';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,6 +23,8 @@ class App extends React.Component {
     };
     this.switchToRules = this.switchToRules.bind(this);
     this.switchToPlay = this.switchToPlay.bind(this);
+    this.switchToChoice = this.switchToChoice.bind(this);
+    this.switchToUniverse = this.switchToUniverse.bind(this);
   }
 
   componentDidMount() {
@@ -57,13 +61,30 @@ class App extends React.Component {
     });
   }
 
+  switchToChoice() {
+    this.setState({
+      currentPage: 'choice',
+    });
+  }
+
+  switchToUniverse() {
+    this.setState({
+      currentPage: 'universe',
+    });
+  }
+
   render() {
     return (
       <div>
         <div>
-          {this.state.currentPage === 'homepage' && <Homepage clickRules={this.switchToRules} clickPlay={this.switchToPlay} />}
+          {this.state.currentPage === 'homepage' && <Homepage clickRules={this.switchToRules} clickPlay={this.switchToPlay} clickChoice={this.switchToChoice} clickUniverse={this.switchToUniverse} />}
         </div>
-
+        <div>
+          {this.state.currentPage === 'choice' && <HeroesList heroes={this.state.heroes} clickPlay={this.switchToPlay} />}
+        </div>
+        <div>
+          {this.state.currentPage === 'universe' && <UniverseList clickChoice={this.switchToChoice} />}
+        </div>
         <div>
           {this.state.currentPage === 'rules' && (
           <Router>

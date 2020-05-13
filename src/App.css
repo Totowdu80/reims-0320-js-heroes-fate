@@ -123,3 +123,134 @@ body {
 .littleBlock__text {
   border-top: 2px solid #ff65fb;
 }
+
+
+
+
+/*----------------------HeroesList-----------------*/
+
+
+.heroChoice {
+  display: flex;
+  flex-direction: column;
+  border: solid 3vh black;
+  border-radius: 10%;
+}
+
+.heroStats {
+  display: flex;
+  background-color: #1b4559;
+  justify-content: space-around;
+  border-radius: 0 0 5% 5%;
+}
+
+.imageStats {
+  height: 10vh;
+  margin-top: 2vh;
+}
+
+.imgHero {
+  display: flex;
+  height: 68vh;
+  border-radius: 5% 5% 0 0;
+}
+
+.stats {
+  margin: 0;
+}
+
+.choicePage {
+  display: flex;
+  width: 100%;
+  background-image: url(https://zupimages.net/up/20/20/zoau.jpg);
+  background-size: cover;
+  justify-content: space-around;
+}
+
+.heroChoice:hover {
+  opacity: 0.5;
+}
+
+.heroName {
+  margin-bottom: 0;
+  margin-top: 0;
+  background-color: black;
+}
+
+
+/*---------------------UniverseList----------------*/
+
+.buttonSw {
+  background-image: url(https://zupimages.net/up/20/20/40gx.jpg);
+  width: 75vh;
+  height: 37.8vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+  border: none;
+  margin-top: 8vh;
+  border: solid 10px black;
+}
+
+.backUniverse {
+  display: flex;
+  height: 100vh;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-image: url(https://zupimages.net/up/20/20/zoau.jpg);
+  background-size: cover;
+}
+
+.buttonMarvel {
+  background-image: url(https://zupimages.net/up/20/20/3x1q.jpg);
+  width: 75vh;
+  height: 37.8vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+  border: none;
+  margin-top: 8vh;
+  border: solid 10px black;
+}
+
+.buttonDc {
+  background-image: url(https://zupimages.net/up/20/20/55as.jpg);
+  width: 75vh;
+  height: 37.8vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin-left: 60vh;
+  border: solid 10px black;
+  margin-top: 7.5vh;
+}
+
+.batman {
+  position: absolute;
+  bottom: 0;
+  width: 50vh;
+  right: 10vh;
+}
+
+.spider {
+  position: absolute;
+  width: 33vh;
+  top: 0;
+  left: 85vh;
+}
+
+.yoda {
+  position: absolute;
+  width: 90vh;
+  bottom: 10vh;
+  left: 0;
+}
+
+.pChoose {
+  position: absolute;
+  top: 40%;
+  bottom: 40%;
+  right: 30%;
+  left: 30%;
+  font-size: 7vh;
+}
