@@ -8,15 +8,17 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      numberTwo: 0,
-      number: 0,
+      numberIA: 0,
+      numberPlayer: 0,
       interface: 0,
       playerLaunch: '',
       iaLaunch: '',
       enemyLife: parseFloat(this.props.heroes[0].powerstats.power) * 2,
       playerLife: parseFloat(this.props.heroes[1].powerstats.power) * 2,
     };
-    this.attackturn = this.attackturn.bind(this);
+    this.lowAtt = this.lowAtt.bind(this);
+    this.mediumAtt = this.mediumAtt.bind(this);
+    this.highAtt = this.highAtt.bind(this);
     this.lowDef = this.lowDef.bind(this);
     this.mediumDef = this.mediumDef.bind(this);
     this.highDef = this.highDef.bind(this);
@@ -46,82 +48,265 @@ class Game extends Component {
     });
   }
 
-  attackturn() {
+  lowAtt() {
     const playerAttack = parseFloat(this.props.heroes[1].powerstats.strength);
     const enemyDefense = (parseFloat(this.props.heroes[0].powerstats.durability) + parseFloat(this.props.heroes[0].powerstats.combat)) / 2;
     const dicePlayer = Math.floor(Math.random() * (Math.floor(100)));
     const diceIA = Math.floor(Math.random() * (Math.floor(100)));
     let attack = true;
-    let critical = true;
+    let attCritical = true;
     let defense = true;
+    let defCritical = true;
 
     if (dicePlayer <= 5) {
       attack = false;
-      critical = true;
-    } else if (dicePlayer >= 6 && dicePlayer <= 49) {
+      attCritical = true;
+    } else if (dicePlayer >= 6 && dicePlayer <= 19) {
       attack = false;
-      critical = false;
-    } else if (dicePlayer >= 50 && dicePlayer <= 94) {
+      attCritical = false;
+    } else if (dicePlayer >= 20 && dicePlayer <= 94) {
       attack = true;
-      critical = false;
+      attCritical = false;
     } else {
       attack = true;
-      critical = true;
+      attCritical = true;
     }
 
-    if (diceIA <= 50) {
+    if (diceIA <= 5) {
       defense = false;
+      defCritical = true;
+    } else if (diceIA >= 6 && diceIA <= 49) {
+      defense = false;
+      defCritical = false;
+    } else if (diceIA >= 50 && diceIA <= 94) {
+      defense = true;
+      defCritical = false;
     } else {
       defense = true;
+      defCritical = true;
     }
 
-    if (attack === true && critical === true && defense === false) {
-      this.setState({
-        playerLaunch: 'Attaque Critique',
-        iaLaunch: 'Défense ratée',
-        enemyLife: this.state.enemyLife - (playerAttack * 2),
-        number: dicePlayer,
-        numberTwo: diceIA,
-        interface: this.state.interface + 1,
-      });
-    } else if (attack === true && critical === false && defense === false) {
-      this.setState({
-        playerLaunch: 'Attaque réussie',
-        iaLaunch: 'Défense ratée',
-        enemyLife: this.state.enemyLife - (playerAttack),
-        number: dicePlayer,
-        numberTwo: diceIA,
-        interface: this.state.interface + 1,
-      });
-    } else if (attack === true && critical === true && defense === true) {
-      this.setState({
-        playerLaunch: 'Attaque Critique',
-        iaLaunch: 'Défense réussie',
-        enemyLife: (this.state.enemyLife + enemyDefense) - (playerAttack * 2),
-        number: dicePlayer,
-        numberTwo: diceIA,
-        interface: this.state.interface + 1,
-      });
-    } else if (attack === true && critical === false && defense === true) {
-      this.setState({
-        playerLaunch: 'Attaque réussie',
-        iaLaunch: 'Défense réussie',
-        enemyLife: (this.state.enemyLife + enemyDefense) - (playerAttack),
-        number: dicePlayer,
-        numberTwo: diceIA,
-        interface: this.state.interface + 1,
-      });
-    } else {
-      this.setState({
-        playerLaunch: 'Attaque ratée',
-        number: dicePlayer,
-        numberTwo: diceIA,
-        interface: this.state.interface + 1,
-      });
+    let damage = 0;
+    let attLaunch = 'Attaque ratée';
+    let defLaunch = 'Défense ratée';
+
+    if (attack === true) {
+      if (attCritical === true) {
+        if (defense === true) {
+          if (defCritical === true) { /* Attaque Critique mais Défense Critique, reste bonus à appliquer */
+            damage = enemyDefense - (playerAttack * 2);
+            attLaunch = 'Attaque Critique';
+            defLaunch = 'Défense Critique';
+          } else { /* Attaque Critique, Défense Normale */
+            damage = enemyDefense - (playerAttack * 2);
+            attLaunch = 'Attaque Critique';
+            defLaunch = 'Défense réussie';
+          }
+        } else { /* Attaque Critque, aucune défense */
+          damage = -(playerAttack * 2);
+          attLaunch = 'Attaque Critique';
+          defLaunch = 'Défense Ratée';
+        }
+      } else if (defense === true) {
+        if (defCritical === true) { /* Attaque non critique, Défense critique (bonus de def à rajouter) */
+          damage = enemyDefense - playerAttack;
+          attLaunch = 'Attaque réussie';
+          defLaunch = 'Défense Critique';
+        } else { /* Attaque non critique, Défense non critique */
+          damage = enemyDefense - playerAttack;
+          attLaunch = 'Attaque réussie';
+          defLaunch = 'Défense réussie';
+        }
+      } else { /* Attaque non critique, Pas de défense */
+        damage = -playerAttack;
+        attLaunch = 'Attaque réussie';
+        defLaunch = 'Défense ratée';
+      }
     }
+
+    this.setState({
+      enemyLife: this.state.enemyLife + Math.min(damage, 0),
+      numberPlayer: dicePlayer,
+      numberIA: diceIA,
+      interface: this.state.interface + 1,
+      playerLaunch: attLaunch,
+      iaLaunch: defLaunch,
+    });
   }
 
-  lowDef() {
+  mediumAtt() {
+    const playerAttack = parseFloat(this.props.heroes[1].powerstats.strength);
+    const enemyDefense = (parseFloat(this.props.heroes[0].powerstats.durability) + parseFloat(this.props.heroes[0].powerstats.combat)) / 2;
+    const dicePlayer = Math.floor(Math.random() * (Math.floor(100)));
+    const diceIA = Math.floor(Math.random() * (Math.floor(100)));
+    let attack = true;
+    let attCritical = true;
+    let defense = true;
+    let defCritical = true;
+
+    if (dicePlayer <= 5) {
+      attack = false;
+      attCritical = true;
+    } else if (dicePlayer >= 6 && dicePlayer <= 49) {
+      attack = false;
+      attCritical = false;
+    } else if (dicePlayer >= 50 && dicePlayer <= 94) {
+      attack = true;
+      attCritical = false;
+    } else {
+      attack = true;
+      attCritical = true;
+    }
+
+    if (diceIA <= 5) {
+      defense = false;
+      defCritical = true;
+    } else if (diceIA >= 6 && diceIA <= 49) {
+      defense = false;
+      defCritical = false;
+    } else if (diceIA >= 50 && diceIA <= 94) {
+      defense = true;
+      defCritical = false;
+    } else {
+      defense = true;
+      defCritical = true;
+    }
+
+    let damage = 0;
+    let attLaunch = 'Attaque ratée';
+    let defLaunch = 'Défense ratée';
+
+    if (attack === true) {
+      if (attCritical === true) {
+        if (defense === true) {
+          if (defCritical === true) { /* Attaque Critique mais Défense Critique, reste bonus à appliquer */
+            damage = enemyDefense - (playerAttack * 2);
+            attLaunch = 'Attaque Critique';
+            defLaunch = 'Défense Critique';
+          } else { /* Attaque Critique, Défense Normale */
+            damage = enemyDefense - (playerAttack * 2);
+            attLaunch = 'Attaque Critique';
+            defLaunch = 'Défense réussie';
+          }
+        } else { /* Attaque Critque, aucune défense */
+          damage = -(playerAttack * 2);
+          attLaunch = 'Attaque Critique';
+          defLaunch = 'Défense Ratée';
+        }
+      } else if (defense === true) {
+        if (defCritical === true) { /* Attaque non critique, Défense critique (bonus de def à rajouter) */
+          damage = enemyDefense - playerAttack;
+          attLaunch = 'Attaque réussie';
+          defLaunch = 'Défense Critique';
+        } else { /* Attaque non critique, Défense non critique */
+          damage = enemyDefense - playerAttack;
+          attLaunch = 'Attaque réussie';
+          defLaunch = 'Défense réussie';
+        }
+      } else { /* Attaque non critique, Pas de défense */
+        damage = -playerAttack;
+        attLaunch = 'Attaque réussie';
+        defLaunch = 'Défense ratée';
+      }
+    }
+
+    this.setState({
+      enemyLife: this.state.enemyLife + Math.min(damage, 0),
+      numberPlayer: dicePlayer,
+      numberIA: diceIA,
+      interface: this.state.interface + 1,
+      playerLaunch: attLaunch,
+      iaLaunch: defLaunch,
+    });
+  }
+
+  highAtt() {
+    const playerAttack = parseFloat(this.props.heroes[1].powerstats.strength);
+    const enemyDefense = (parseFloat(this.props.heroes[0].powerstats.durability) + parseFloat(this.props.heroes[0].powerstats.combat)) / 2;
+    const dicePlayer = Math.floor(Math.random() * (Math.floor(100)));
+    const diceIA = Math.floor(Math.random() * (Math.floor(100)));
+    let attack = true;
+    let attCritical = true;
+    let defense = true;
+    let defCritical = true;
+
+    if (dicePlayer <= 5) {
+      attack = false;
+      attCritical = true;
+    } else if (dicePlayer >= 6 && dicePlayer <= 79) {
+      attack = false;
+      attCritical = false;
+    } else if (dicePlayer >= 80 && dicePlayer <= 94) {
+      attack = true;
+      attCritical = false;
+    } else {
+      attack = true;
+      attCritical = true;
+    }
+
+    if (diceIA <= 5) {
+      defense = false;
+      defCritical = true;
+    } else if (diceIA >= 6 && diceIA <= 49) {
+      defense = false;
+      defCritical = false;
+    } else if (diceIA >= 50 && diceIA <= 94) {
+      defense = true;
+      defCritical = false;
+    } else {
+      defense = true;
+      defCritical = true;
+    }
+
+    let damage = 0;
+    let attLaunch = 'Attaque ratée';
+    let defLaunch = 'Défense ratée';
+
+    if (attack === true) {
+      if (attCritical === true) {
+        if (defense === true) {
+          if (defCritical === true) { /* Attaque Critique mais Défense Critique, reste bonus à appliquer */
+            damage = enemyDefense - (playerAttack * 2);
+            attLaunch = 'Attaque Critique';
+            defLaunch = 'Défense Critique';
+          } else { /* Attaque Critique, Défense Normale */
+            damage = enemyDefense - (playerAttack * 2);
+            attLaunch = 'Attaque Critique';
+            defLaunch = 'Défense réussie';
+          }
+        } else { /* Attaque Critque, aucune défense */
+          damage = -(playerAttack * 2);
+          attLaunch = 'Attaque Critique';
+          defLaunch = 'Défense Ratée';
+        }
+      } else if (defense === true) {
+        if (defCritical === true) { /* Attaque non critique, Défense critique (bonus de def à rajouter) */
+          damage = enemyDefense - playerAttack;
+          attLaunch = 'Attaque réussie';
+          defLaunch = 'Défense Critique';
+        } else { /* Attaque non critique, Défense non critique */
+          damage = enemyDefense - playerAttack;
+          attLaunch = 'Attaque réussie';
+          defLaunch = 'Défense réussie';
+        }
+      } else { /* Attaque non critique, Pas de défense */
+        damage = -playerAttack;
+        attLaunch = 'Attaque réussie';
+        defLaunch = 'Défense ratée';
+      }
+    }
+
+    this.setState({
+      enemyLife: this.state.enemyLife + Math.min(damage, 0),
+      numberPlayer: dicePlayer,
+      numberIA: diceIA,
+      interface: this.state.interface + 1,
+      playerLaunch: attLaunch,
+      iaLaunch: defLaunch,
+    });
+  }
+
+  lowDef(thresholds) {
     const enemyAttack = parseFloat(this.props.heroes[0].powerstats.strength);
     const playerDefense = (parseFloat(this.props.heroes[1].powerstats.durability) + parseFloat(this.props.heroes[1].powerstats.combat)) / 2;
     const dicePlayer = Math.floor(Math.random() * (Math.floor(100)));
@@ -145,17 +330,17 @@ class Game extends Component {
       attCritical = true;
     }
 
-    if (dicePlayer <= 5) {
+    if (dicePlayer <= thresholds.low) {
       defense = false;
       defCritical = true;
-    } else if (dicePlayer >= 6 && dicePlayer <= 19) {
-      attack = false;
+    } else if (dicePlayer > thresholds.low && dicePlayer < thresholds.medium) {
+      defense = false;
       defCritical = false;
-    } else if (dicePlayer >= 20 && dicePlayer <= 94) {
-      attack = true;
+    } else if (dicePlayer >= thresholds.medium && dicePlayer < thresholds.high) {
+      defense = true;
       defCritical = false;
     } else {
-      attack = true;
+      defense = true;
       defCritical = true;
     }
 
@@ -199,8 +384,8 @@ class Game extends Component {
 
     this.setState({
       playerLife: this.state.playerLife + Math.min(damage, 0),
-      number: dicePlayer,
-      numberTwo: diceIA,
+      numberPlayer: dicePlayer,
+      numberIA: diceIA,
       interface: this.state.interface + 1,
       playerLaunch: defLaunch,
       iaLaunch: attLaunch,
@@ -235,13 +420,13 @@ class Game extends Component {
       defense = false;
       defCritical = true;
     } else if (dicePlayer >= 6 && dicePlayer <= 49) {
-      attack = false;
+      defense = false;
       defCritical = false;
     } else if (dicePlayer >= 50 && dicePlayer <= 94) {
-      attack = true;
+      defense = true;
       defCritical = false;
     } else {
-      attack = true;
+      defense = true;
       defCritical = true;
     }
 
@@ -285,8 +470,8 @@ class Game extends Component {
 
     this.setState({
       playerLife: this.state.playerLife + Math.min(damage, 0),
-      number: dicePlayer,
-      numberTwo: diceIA,
+      numberPlayer: dicePlayer,
+      numberIA: diceIA,
       interface: this.state.interface + 1,
       playerLaunch: defLaunch,
       iaLaunch: attLaunch,
@@ -321,13 +506,13 @@ class Game extends Component {
       defense = false;
       defCritical = true;
     } else if (dicePlayer >= 6 && dicePlayer <= 79) {
-      attack = false;
+      defense = false;
       defCritical = false;
     } else if (dicePlayer >= 80 && dicePlayer <= 94) {
-      attack = true;
+      defense = true;
       defCritical = false;
     } else {
-      attack = true;
+      defense = true;
       defCritical = true;
     }
 
@@ -371,8 +556,8 @@ class Game extends Component {
 
     this.setState({
       playerLife: this.state.playerLife + Math.min(damage, 0),
-      number: dicePlayer,
-      numberTwo: diceIA,
+      numberPlayer: dicePlayer,
+      numberIA: diceIA,
       interface: this.state.interface + 1,
       playerLaunch: defLaunch,
       iaLaunch: attLaunch,
@@ -400,9 +585,9 @@ class Game extends Component {
             && (
             <div>
               {/* Attack Choice */}
-              <input type="button" className="gameButton" onClick={this.attackturn} value="Attack 1" />
-              <input type="button" className="gameButton" onClick={this.transition} value="Attack 2" />
-              <input type="button" className="gameButton" onClick={this.transition} value="Attack 3" />
+              <input type="button" className="gameButton" onClick={this.lowAtt} value="Attack 1" />
+              <input type="button" className="gameButton" onClick={this.mediumAtt} value="Attack 2" />
+              <input type="button" className="gameButton" onClick={this.highAtt} value="Attack 3" />
             </div>
             )}
 
@@ -415,8 +600,8 @@ class Game extends Component {
                 <p className="textresult">{this.state.playerLaunch}</p>
               </div>
               <div className="dice__container">
-                <button className="dice" type="button">{this.state.numberTwo}</button>
-                <button className="dice" type="button">{this.state.number}</button>
+                <button className="dice" type="button">{this.state.numberIA}</button>
+                <button className="dice" type="button">{this.state.numberPlayer}</button>
               </div>
               <div>
                 {this.state.enemyLife <= 0
@@ -438,7 +623,7 @@ class Game extends Component {
             && (
             <div>
               {/* Défense Choice */}
-              <input type="button" className="gameButton" onClick={this.lowDef} value="Defense 1" />
+              <input type="button" className="gameButton" onClick={() => this.lowDef({ low: 5, medium: 20, high: 95 })} value="Defense 1" />
               <input type="button" className="gameButton" onClick={this.mediumDef} value="Defense 2" />
               <input type="button" className="gameButton" onClick={this.highDef} value="Defense 3" />
             </div>
@@ -453,8 +638,8 @@ class Game extends Component {
                 <p className="textresult">{this.state.playerLaunch}</p>
               </div>
               <div className="dice__container">
-                <button className="dice" type="button">{this.state.numberTwo}</button>
-                <button className="dice" type="button">{this.state.number}</button>
+                <button className="dice" type="button">{this.state.numberIA}</button>
+                <button className="dice" type="button">{this.state.numberPlayer}</button>
               </div>
               <div>
                 {this.state.playerLife <= 0

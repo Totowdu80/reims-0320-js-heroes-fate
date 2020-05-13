@@ -1,6 +1,125 @@
-/*--------------------------------------------------------------*/
-/*----------------------------Game CSS--------------------------*/
-/*--------------------------------------------------------------*/
+/*-------------------------------------------------------------------------*/
+/*---------------------------- Global CSS ---------------------------------*/
+/*-------------------------------------------------------------------------*/
+
+.globalContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+}
+
+.backgroundAll {
+  background-image: url(https://zupimages.net/up/20/20/zoau.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+/*-------------------------------------------------------------------------*/
+/*------------------------------- Interfaces ------------------------------*/
+/*-------------------------------------------------------------------------*/
+
+.life__container {
+  /* background-color: yellow; */
+  width: 500px;
+}
+
+.life__bar {
+  background-color: red;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.stats__container {
+  background-color: black;
+  margin: 0px;
+}
+
+.stats__list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  color: white;
+}
+
+/* --------------------------------- */
+/* ------------ Ennemi ------------- */
+/* --------------------------------- */
+
+.interface__enemy {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 15vh;
+  border: 0.5rem solid black;
+
+  border-radius: 0 0 10% 10%;
+  background-image: url(https://zupimages.net/up/20/20/rvco.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  box-shadow:1px 1px 3px #999;
+}
+
+.enemy_img {
+  align-self: flex-start;
+  border-radius: 50%;
+  height: 180px;
+  border: 0.5rem solid black;
+}
+
+/* --------------------------------- */
+/* ------------ Joueur ------------- */
+/* --------------------------------- */
+
+.interface__player {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 15vh;
+  border: 0.5rem solid black;
+
+  background-image: url(https://zupimages.net/up/20/20/gjcc.png);
+  box-shadow:1px 1px 3px #999;
+  border-radius: 10% 10% 0 0;
+} 
+
+.player_img {
+  border-radius: 50%;
+  height: 180px;
+  border: 0.5rem solid black;
+  align-self: flex-end;
+}
+
+.playerName {
+  font-size: 3rem;
+  color: white;
+  width: 20rem;
+}
+
+/*-------------------------------------------------------------------------*/
+/*---------------------------- Plateau de Combat --------------------------*/
+/*-------------------------------------------------------------------------*/
+
+.interface__gameplay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 22rem;
+  background-image: url(https://zupimages.net/up/20/20/ntup.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 66vh;
+}
+
+/* --------------------------------- */
+/* ------------ Boutons ------------ */
+/* --------------------------------- */
 
 .gameButton {
   border: none;
@@ -24,6 +143,38 @@
   right: 5%;
   bottom: 20%;
 }
+/* --------------------------------- */
+/* -------------- Dés -------------- */
+/* --------------------------------- */
+
+.dice__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+}
+
+.dice {
+  height: 100px;
+  width: 100px;
+  border-radius:12px;
+  background: #f5f5f5;
+  border:none;
+  color:#555;
+  font:bold 12px Verdana;
+  padding:6px 0 6px 0;
+  box-shadow:1px 1px 3px #999;
+  margin: 20px;
+}
+
+.dice__plateau {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------- */
+/* ----------- Autres -------------- */
+/* --------------------------------- */
 
 .text__slideleft {
   font-size: 7rem;
@@ -44,200 +195,6 @@
   align-items: center;
 }
 
-.dice__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 20vw;
-}
-
 .textresult {
   margin: 4rem;
-
 }
-
-/*--------------------------------------------------------------*/
-/*----------------------------Global CSS------------------------*/
-/*--------------------------------------------------------------*/
-
-.globalContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  height: 100%;
-  width: 100%;
-  
-}
-
-.interface__gameplay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 22rem;
-  background-image: url(https://zupimages.net/up/20/20/ntup.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 70vh;
-  
-}
-
-.backgroundAll {
-  background-image: url(https://zupimages.net/up/20/20/zoau.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
-
-/*--------------------------------------------------------------*/
-/*----------------------------PlayerBar CSS---------------------*/
-/*--------------------------------------------------------------*/
-
-.interface__player {
-  display: flex;
-  background-color: grey;
-  justify-content: space-around;
-  align-items: flex-end;
-  height: 8rem;
-  border-radius: 10% 10% 0 0;
-  background-image: url(https://zupimages.net/up/20/20/gjcc.png);
-  border: 0.5rem solid black;
-  box-shadow:1px 1px 3px #999;
-  height: 15vh;
-} 
-
-.playerstats__container {
-
-  margin: 0px;
-  padding: 0px;
-  justify-content: center;
-  align-items: center;
-  height: 5rem;
-
-}
-
-.playerName {
-  font-size: 3rem;
-  color: white;
-  width: 20rem;
-}
-
-.stats__list {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-  color: white;
-}
-
-.profile__container {
-  display: flex;
-  align-items: baseline;
-}
-
-.player-image {
-  display: flex;
-  border-radius: 50%;
-  height: 200px;
-  border: 0.5rem solid black;
-}
-
-.ennemi-image {
-  display: flex;
-  border-radius: 50%;
-  height: 200px;
-  align-items: flex-end;
-  border: 0.5rem solid black;
-}
-
-
-
-/*--------------------------------------------------------------*/
-/*----------------------------EnnemiBar CSS---------------------*/
-/*--------------------------------------------------------------*/
-
-
-
-.interface__ennemi {
-  display: flex;
-  background-color: grey;
-  justify-content: space-around;
-  height: 8rem;
-  border-radius: 0 0 10% 10%;
-  background-image: url(https://zupimages.net/up/20/20/rvco.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
-  border: 0.5rem solid black;
-  box-shadow:1px 1px 3px #999;
-  height: 15vh;
-} 
-
-
-/*--------------------------------------------------------------*/
-/*----------------------------LifeBar CSS-----------------------*/
-/*--------------------------------------------------------------*/
-
-.life__container {
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.life__bar {
-  background-color: red;
-  border-radius: 50%;
-  padding: 20px;
-}
-
-/*--------------------------------------------------------------*/
-/*----------------------------Dice CSS--------------------------*/
-/*--------------------------------------------------------------*/
-
-.dice {
-  height: 100px;
-  width: 100px;
-  border-radius:12px;
-  background: #f5f5f5;
-  border:none;
-  color:#555;
-  font:bold 12px Verdana;
-  padding:6px 0 6px 0;
-  box-shadow:1px 1px 3px #999;
-  margin: 20px;
-}
-
-.dice__plateau {
-  display: flex;
-  flex-direction: column;
-}
-
-/*--------------------------------------------------------------*/
-/*----------------------------Button CSS------------------------*/
-/*--------------------------------------------------------------*/
-
-.weaponButton {
-  overflow:hidden;
-  -webkit-border-radius:50px;
-  -moz-border-radius:50px;
-  border-radius:50px;
-  width:90px;
-  height:90px;
-  margin: 10px
-}
-
-.styled {
-  border-radius:12px 0 12px 0;
-  background: #f5f5f5;
-  border:none;
-  color:#555;
-  font:bold 12px Verdana;
-  padding:6px 0 6px 0;
-  box-shadow:1px 1px 3px #999;
-  width: 100px;
-  margin: 20px;
-}
-
