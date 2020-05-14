@@ -40,9 +40,7 @@ class Homepage extends React.Component {
                 <p>
                   Heroes Fate est un jeu de plateau dans lequel vous incarnez un héros et revivez son histoire à travers différents combats
                 </p>
-                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
-                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
-                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
+                <p>Choisissez votre héros, enfilez votre plus beau costume et lancez vous dans l'aventure</p>
               </div>
             </div>
             <div className="sectionTwo__rightcontainer">

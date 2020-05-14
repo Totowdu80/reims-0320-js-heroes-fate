@@ -270,7 +270,7 @@ progress[value]::-webkit-progress-value::after {
 .text__slideleft {
   position: relative;
   font-size: 14vh;
-
+  margin: 0;
   animation-name: slideLeft;
   animation-duration: 3s;
 }
@@ -287,6 +287,7 @@ progress[value]::-webkit-progress-value::after {
 .text__slideright {
   position: relative;
   font-size: 14vh;
+  margin: 0;
   animation-name: slideRight;
   animation-duration: 3s;
 }
