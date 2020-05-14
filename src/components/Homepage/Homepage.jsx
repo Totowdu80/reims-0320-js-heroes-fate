@@ -44,12 +44,12 @@ class Homepage extends React.Component {
               </div>
             </div>
             <div className="sectionTwo__rightcontainer">
-              <img className="img_righcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
+              <img className="img_rightcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
             </div>
           </section>
           <section className="sectionThree">
             <div className="sectionThree__leftcontainer">
-              <img className="img_righcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
+              <img className="img_leftcontainer" src="https://zupimages.net/up/20/20/nt4c.png" alt="" />
             </div>
             <div className="sectionThree__rightcontainer">
               <div className="sectionThree__textcontainer">
