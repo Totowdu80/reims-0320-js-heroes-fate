@@ -11,8 +11,7 @@ class PlayerStats extends React.Component {
     return (
       <div className="interface__player">
         <div className="lifebar">
-          <progress className="life__container" id="enemyLife" max={parseFloat(this.props.player.powerstats.power) * 2} value={this.props.playerLife}>100%</progress>
-          <p>{this.props.playerLife}</p>
+          <progress className="life__container" id="enemyLife" max={parseFloat(this.props.player.powerstats.power) * 2} value={this.props.playerLife}></progress>
         </div>
         <img className="player_img" src={this.props.player.image.url} alt='Player Avatar' />
         <h2 className="playerName">{this.props.player.name} </h2>
