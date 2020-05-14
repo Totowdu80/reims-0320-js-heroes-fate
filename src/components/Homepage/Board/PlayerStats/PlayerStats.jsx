@@ -34,7 +34,7 @@ class PlayerStats extends React.Component {
               <li>Attaque : {parseFloat(this.props.player.powerstats.strength)} </li>
               <li>Résistence : {(parseFloat(this.props.player.powerstats.durability) + parseFloat(this.props.player.powerstats.combat))/2} </li>
             </ul>
-        </div>
+          </div>
         </div>
       </div>
     );
