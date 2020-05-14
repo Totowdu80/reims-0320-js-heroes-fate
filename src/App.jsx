@@ -22,6 +22,7 @@ class App extends React.Component {
     this.switchToPlay = this.switchToPlay.bind(this);
     this.switchToChoice = this.switchToChoice.bind(this);
     this.switchToUniverse = this.switchToUniverse.bind(this);
+    this.switchToHome = this.switchToHome.bind(this);
   }
 
   componentDidMount() {
@@ -31,40 +32,61 @@ class App extends React.Component {
       { universe: 'dc', heroes: [{ id: 70, nemesisId: 370 }, { id: 265, nemesisId: 528 }, { id: 298, nemesisId: 216 }], villains: [{ id: 370 }, { id: 528 }, { id: 216 }] },
     ];
 
-    for (let i = 0; i < listHeroes.length; i++) {
-      const universe = listHeroes[i].universe;
+    const heroesIds = listHeroes.reduce((ids, universe) => [
+      ...ids,
+      ...universe.heroes.map((hero) => hero.id),
+    ], []);
+    const heroesUrl = `https://heroes-api-wrapper.herokuapp.com/heroes?heroIds=${heroesIds.join(',')}`;
 
-      const heroes = listHeroes[i].heroes;
-      for (let j = 0; j < heroes.length; j++) {
-        Axios.get(`https://www.superheroapi.com/api.php/10222496537945566/${heroes[j].id}`)
-          .then((response) => response.data)
-          .then((data) => {
-            const allHeroes = [...this.state.allHeroes, { ...data, universe, nemesisId: heroes[j].nemesisId }];
-            allHeroes.sort((a, b) => (
-              // thx https://www.freecodecamp.org/forum/t/the-sort-method-behaves-different-on-different-browsers/237221
-              parseInt(a.id, 10) < parseInt(b.id, 10) ? 1 : -1
-            ));
-            this.setState({
-              allHeroes,
-            });
-          });
-      }
-      const villains = listHeroes[i].villains;
-      for (let j = 0; j < villains.length; j++) {
-        Axios.get(`https://www.superheroapi.com/api.php/10222496537945566/${villains[j].id}`)
-          .then((response) => response.data)
-          .then((data) => {
-            const allVillains = [...this.state.allVillains, { ...data, universe }];
-            allVillains.sort((a, b) => (
-              // thx https://www.freecodecamp.org/forum/t/the-sort-method-behaves-different-on-different-browsers/237221
-              parseInt(a.id, 10) < parseInt(b.id, 10) ? 1 : -1
-            ));
-            this.setState({
-              allVillains,
-            });
-          });
-      }
-    }
+    Axios.get(heroesUrl)
+      .then((response) => response.data)
+      .then((data) => {
+        const allHeroes = data.map((hero) => ({
+          ...hero,
+          universe: listHeroes.find(
+            (universe) => universe.heroes.findIndex(
+              (candidate) => parseInt(candidate.id, 10) === parseInt(hero.id, 10),
+            ) !== -1,
+          ).universe,
+          nemesisId: listHeroes.reduce(
+            (found, universe) => found ?? universe.heroes.find(
+              (candidate) => parseInt(candidate.id, 10) === parseInt(hero.id, 10),
+            ), null,
+          ).nemesisId,
+        }));
+        allHeroes.sort((a, b) => (
+          // thx https://www.freecodecamp.org/forum/t/the-sort-method-behaves-different-on-different-browsers/237221
+          parseInt(a.id, 10) < parseInt(b.id, 10) ? 1 : -1
+        ));
+        this.setState({
+          allHeroes,
+        });
+      });
+
+    const villainsIds = listHeroes.reduce((ids, universe) => [
+      ...ids,
+      ...universe.villains.map((villain) => villain.id),
+    ], []);
+    const villainsUrl = `https://heroes-api-wrapper.herokuapp.com/heroes?heroIds=${villainsIds.join(',')}`;
+
+    Axios.get(villainsUrl)
+      .then((response) => response.data)
+      .then((data) => {
+        const allVillains = data;
+        allVillains.sort((a, b) => (
+          // thx https://www.freecodecamp.org/forum/t/the-sort-method-behaves-different-on-different-browsers/237221
+          parseInt(a.id, 10) < parseInt(b.id, 10) ? 1 : -1
+        ));
+        this.setState({
+          allVillains,
+        });
+      });
+  }
+
+  switchToHome() {
+    this.setState({
+      currentPage: 'homepage',
+    });
   }
 
   switchToRules() {
@@ -113,7 +135,7 @@ class App extends React.Component {
 
         <div>
           {this.state.currentPage === 'board' && (
-            this.state.heroes.length > 1 && <Game heroes={this.state.heroes} />) }
+            this.state.heroes.length > 1 && <Game heroes={this.state.heroes} clickHome={this.switchToHome} />) }
         </div>
       </div>
     );

@@ -4,14 +4,23 @@ class EnemyLife extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      displayedEnemyLife: this.props.enemyLife,
     };
+  }
+
+  componentDidUpdate() {
+    const { displayedEnemyLife } = this.state;
+    const { enemyLife } = this.props;
+    if (displayedEnemyLife > enemyLife) {
+      setTimeout(() => this.setState({ displayedEnemyLife: (displayedEnemyLife - 1) }), 15);
+    }
   }
 
   render() {
     return (
       <div className="interface__enemy">
         <div className="lifebar">
-          <progress className="life__container" id="enemyLife" max={parseFloat(this.props.villain.powerstats.power) * 2} value={this.props.enemyLife}>50%</progress>
+          <progress className="life__container" id="enemyLife" max={parseFloat(this.props.villain.powerstats.power) * 2} value={this.state.displayedEnemyLife}></progress>
         </div>
         <img className="enemy_img" src={this.props.villain.image.url} alt="Enemy Avatar" />
         <h2 className="playerName">{this.props.villain.name} </h2>

@@ -14,6 +14,8 @@
   background-image: url(https://zupimages.net/up/20/20/zoau.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
 }
 
@@ -44,7 +46,7 @@ progress[value]::-webkit-progress-value {
 	   -webkit-linear-gradient(left, #ff1800, #f44);
 
     border-radius: 2px; 
-    background-size: 35px 20px, 100% 100%, 100% 100%;
+    background-size: 25vw 3vh, 100% 100%, 100% 100%;
     -webkit-animation: animate-stripes 5s linear infinite;
         animation: animate-stripes 5s linear infinite;
 }
@@ -150,6 +152,7 @@ progress[value]::-webkit-progress-value::after {
 /*-------------------------------------------------------------------------*/
 
 .interface__gameplay {
+  flex: 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -219,12 +222,21 @@ progress[value]::-webkit-progress-value::after {
 /* ----------- Autres -------------- */
 /* --------------------------------- */
 
+.textslide__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .text__slideleft {
-  font-size: 7rem;
+  font-size: 14vh;
+  margin: 0;
 }
 
 .text__slideright {
-  font-size: 7rem;
+  font-size: 14vh;
+  margin: 0;
 }
 
 .result__container {

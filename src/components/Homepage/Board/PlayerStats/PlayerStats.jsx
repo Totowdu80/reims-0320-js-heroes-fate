@@ -4,14 +4,23 @@ class PlayerStats extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      displayedPlayerLife: this.props.playerLife,
     };
+  }
+
+  componentDidUpdate() {
+    const { displayedPlayerLife } = this.state;
+    const { playerLife } = this.props;
+    if (displayedPlayerLife > playerLife) {
+      setTimeout(() => this.setState({ displayedPlayerLife: (displayedPlayerLife - 1) }), 15);
+    }
   }
 
   render() {
     return (
       <div className="interface__player">
         <div className="lifebar">
-          <progress className="life__container" id="enemyLife" max={parseFloat(this.props.player.powerstats.power) * 2} value={this.props.playerLife}></progress>
+          <progress className="life__container" id="enemyLife" max={parseFloat(this.props.player.powerstats.power) * 2} value={this.state.displayedPlayerLife}></progress>
         </div>
         <img className="player_img" src={this.props.player.image.url} alt='Player Avatar' />
         <h2 className="playerName">{this.props.player.name} </h2>
