@@ -209,6 +209,19 @@ progress[value]::-webkit-progress-value::after {
   right: 5%;
   bottom: 20%;
 }
+
+.finishButton {
+  border: none;
+  background: url(https://rocketleague.media.zestyio.com/rl_rp6_button_2462.png) no-repeat ;
+  background-size: cover;
+  width: 300px;
+  height: 40px;
+  text-align: center;
+  padding-right: 3.25%;
+  position: absolute;
+  right: 5%;
+  bottom: 20%;
+}
 /* --------------------------------- */
 /* -------------- Dés -------------- */
 /* --------------------------------- */

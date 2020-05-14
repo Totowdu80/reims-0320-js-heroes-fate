@@ -605,7 +605,7 @@ class Game extends Component {
               </div>
               <div>
                 {this.state.enemyLife <= 0
-                  ? <input type="button" className="gameButton" onClick={this.endWin} value="Finish" />
+                  ? <input type="button" className="finishButton" onClick={this.endWin} value="Fin de partie" />
                   : <input type="button" className="continueButton" onClick={this.transition} value="Continue" />}
               </div>
             </div>
@@ -643,7 +643,7 @@ class Game extends Component {
               </div>
               <div>
                 {this.state.playerLife <= 0
-                  ? <input type="button" className="gameButton" onClick={this.endLose} value="Finish" />
+                  ? <input type="button" className="finishButton" onClick={this.endLose} value="Fin de partie" />
                   : <input type="button" className="continueButton" onClick={this.restart} value="Continue" />}
               </div>
             </div>

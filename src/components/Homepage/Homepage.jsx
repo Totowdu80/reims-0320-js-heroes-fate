@@ -20,14 +20,14 @@ class Homepage extends React.Component {
                 onClick={this.props.clickRules}
                 type="button"
               >
-                How to play
+                Comment jouer ?
               </button>
               <button
                 className="homeButton"
                 onClick={this.props.clickUniverse}
                 type="button"
               >
-                <span>Play</span>
+                <span>Jouer</span>
               </button>
             </div>
           </section>
@@ -46,7 +46,7 @@ class Homepage extends React.Component {
               </div>
             </div>
             <div className="sectionTwo__rightcontainer">
-              <img className="img_rightcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
+              <img className="img_rightcontainer" src="https://www.dlf.pt/png/big/6/68463_darth-png.png" alt="" />
             </div>
           </section>
           <section className="sectionThree">
@@ -56,7 +56,11 @@ class Homepage extends React.Component {
             <div className="sectionThree__rightcontainer">
               <div className="sectionThree__textcontainer">
                 <h2>Les nouveautés à venir</h2>
-                <p>Coming soon</p>
+                <ul>
+                  <h3>Prochaine mise à jour :</h3>
+                  <li>Toujours plus d'univers</li>
+                  <li>De nouveaux héros à jouer</li>
+                </ul>
               </div>
             </div>
           </section>
