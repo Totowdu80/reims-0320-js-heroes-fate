@@ -47,7 +47,6 @@ class Homepage extends React.Component {
               <img className="img_righcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
             </div>
           </section>
-          
           <section className="sectionThree">
             <div className="sectionThree__leftcontainer">
               <img className="img_righcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />

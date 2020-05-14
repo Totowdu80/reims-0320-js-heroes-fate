@@ -19,6 +19,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       allHeroes: [],
+      allVillains: [],
       heroes: [],
       currentPage: 'homepage',
       wantedUniverse: 'marvel',
@@ -31,25 +32,41 @@ class App extends React.Component {
 
   componentDidMount() {
     const listHeroes = [
-      { universe: 'marvel', ids: [687, 620] },
-      { universe: 'starwars', ids: [729, 418] },
-      { universe: 'dc', ids: [70, 144] },
+      { universe: 'marvel', heroes: [{ id: 687, nemesisId: 620 }], villains: [{ id: 620 }] },
+      /*{ universe: 'starwars', ids: [729, 418] },
+      { universe: 'dc', ids: [70, 144] },*/
     ];
 
     for (let i = 0; i < listHeroes.length; i++) {
       const universe = listHeroes[i].universe;
-      const ids = listHeroes[i].ids;
-      for (let j = 0; j < ids.length; j++) {
-        Axios.get(`https://www.superheroapi.com/api.php/10222496537945566/${ids[j]}`)
+
+      const heroes = listHeroes[i].heroes;
+      for (let j = 0; j < heroes.length; j++) {
+        Axios.get(`https://www.superheroapi.com/api.php/10222496537945566/${heroes[j].id}`)
           .then((response) => response.data)
           .then((data) => {
-            const allHeroes = [...this.state.allHeroes, { ...data, universe }];
+            const allHeroes = [...this.state.allHeroes, { ...data, universe, nemesisId: heroes[j].nemesisId }];
             allHeroes.sort((a, b) => (
               // thx https://www.freecodecamp.org/forum/t/the-sort-method-behaves-different-on-different-browsers/237221
               parseInt(a.id, 10) < parseInt(b.id, 10) ? 1 : -1
             ));
             this.setState({
               allHeroes,
+            });
+          });
+      }
+      const villains = listHeroes[i].villains;
+      for (let j = 0; j < villains.length; j++) {
+        Axios.get(`https://www.superheroapi.com/api.php/10222496537945566/${villains[j].id}`)
+          .then((response) => response.data)
+          .then((data) => {
+            const allVillains = [...this.state.allVillains, { ...data, universe }];
+            allVillains.sort((a, b) => (
+              // thx https://www.freecodecamp.org/forum/t/the-sort-method-behaves-different-on-different-browsers/237221
+              parseInt(a.id, 10) < parseInt(b.id, 10) ? 1 : -1
+            ));
+            this.setState({
+              allVillains,
             });
           });
       }
@@ -62,9 +79,12 @@ class App extends React.Component {
     });
   }
 
-  switchToPlay() {
+  switchToPlay(heroId) {
+    const hero = this.state.allHeroes.find((hero) => parseInt(hero.id) === parseInt(heroId));
+    const villain = this.state.allVillains.find((villain) => parseInt(villain.id) === parseInt(hero.nemesisId));
     this.setState({
       currentPage: 'board',
+      heroes: [hero, villain],
     });
   }
 
@@ -94,38 +114,13 @@ class App extends React.Component {
           {this.state.currentPage === 'universe' && <UniverseList clickChoice={this.switchToChoice} />}
         </div>
         <div>
-          {this.state.currentPage === 'rules' && (
-          <Router>
-            <div>
-              <nav>
-                <ul className="navbar">
-                  <li><NavLink activeClassName="active" to="/rules">Instructions</NavLink></li>
-                  <li><NavLink activeClassName="active" to="/legalmention">Mentions Légales</NavLink></li>
-                </ul>
-              </nav>
-
-              <Switch>
-
-                <Route exact path="/rules">
-                  <Instruction />
-                </Route>
-
-                <Route path="/legalmention">
-                  <p>Here will be something</p>
-                </Route>
-
-              </Switch>
-            </div>
-          </Router>
-          )}
+          {this.state.currentPage === 'rules' && <Instruction clickUniverse={this.switchToUniverse} />}
         </div>
 
         <div>
           {this.state.currentPage === 'board' && (
-            <Game heroes={this.state.heroes} />) }
+            this.state.heroes.length > 1 && <Game heroes={this.state.heroes} />) }
         </div>
-
-
       </div>
     );
   }
