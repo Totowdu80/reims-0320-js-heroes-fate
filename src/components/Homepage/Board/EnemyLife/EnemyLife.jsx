@@ -10,8 +10,13 @@ class EnemyLife extends React.Component {
   render() {
     return (
       <div className="interface__enemy">
-        <div className="lifebar">
-          <progress className="life__container" id="enemyLife" max={parseFloat(this.props.villain.powerstats.power) * 2} value={this.props.enemyLife}>50%</progress>
+        <div className="counterLifeIa">
+          <div className="lifebar">
+            <progress className="life__container" id="enemyLife" max={parseFloat(this.props.villain.powerstats.power) * 2} value={this.props.enemyLife}></progress>
+          </div>
+          <div>
+            <p className="villainLife">{this.props.enemyLife} / {parseFloat(this.props.villain.powerstats.power) * 2}</p>
+          </div>
         </div>
         <img className="enemy_img" src={this.props.villain.image.url} alt="Enemy Avatar" />
         <h2 className="playerName">{this.props.villain.name} </h2>

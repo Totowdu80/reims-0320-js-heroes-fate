@@ -10,8 +10,13 @@ class PlayerStats extends React.Component {
   render() {
     return (
       <div className="interface__player">
-        <div className="lifebar">
-          <progress className="life__container" id="enemyLife" max={parseFloat(this.props.player.powerstats.power) * 2} value={this.props.playerLife}></progress>
+        <div className="counterLife">
+          <div className="lifebar">
+            <progress className="life__container" id="enemyLife" max={parseFloat(this.props.player.powerstats.power) * 2} value={this.props.playerLife}></progress>
+          </div>
+          <div>
+            <p className="heroLife">{this.props.playerLife} / {parseFloat(this.props.player.powerstats.power) * 2}</p>
+          </div>
         </div>
         <img className="player_img" src={this.props.player.image.url} alt='Player Avatar' />
         <h2 className="playerName">{this.props.player.name} </h2>
