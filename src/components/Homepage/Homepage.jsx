@@ -37,7 +37,9 @@ class Homepage extends React.Component {
             <div className="sectionTwo__leftcontainer">
               <div className="sectionTwo__textcontainer">
                 <h2>Bienvenue sur Heroes Fate</h2>
-                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
+                <p>
+                  Heroes Fate est un jeu de plateau dans lequel vous incarnez un héros et revivez son histoire à travers différents combats
+                </p>
                 <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
                 <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
                 <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
