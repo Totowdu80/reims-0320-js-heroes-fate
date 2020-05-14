@@ -37,19 +37,21 @@ class Homepage extends React.Component {
             <div className="sectionTwo__leftcontainer">
               <div className="sectionTwo__textcontainer">
                 <h2>Bienvenue sur Heroes Fate</h2>
-                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
+                <p>
+                  Heroes Fate est un jeu de plateau dans lequel vous incarnez un héros et revivez son histoire à travers différents combats
+                </p>
                 <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
                 <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
                 <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
               </div>
             </div>
             <div className="sectionTwo__rightcontainer">
-              <img className="img_righcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
+              <img className="img_rightcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
             </div>
           </section>
           <section className="sectionThree">
             <div className="sectionThree__leftcontainer">
-              <img className="img_righcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
+              <img className="img_leftcontainer" src="https://zupimages.net/up/20/20/nt4c.png" alt="" />
             </div>
             <div className="sectionThree__rightcontainer">
               <div className="sectionThree__textcontainer">

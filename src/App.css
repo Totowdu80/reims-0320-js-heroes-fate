@@ -78,10 +78,14 @@ body {
   vertical-align: middle;
 }
 
+/*-------------------------------------------------------------------------*/
+/*------------------------------- Section 2  ------------------------------*/
+/*-------------------------------------------------------------------------*/
+
 .sectionTwo {
   background-color: black;
   border-bottom: 2px solid #ff65fb;
-  height: 550px;
+  height: 65vh;
   display: flex;
 }
 
@@ -99,11 +103,12 @@ body {
   align-items: flex-end;
   color: whitesmoke;
   width: 40vw;
-  background-color: blueviolet;
+  background-image: url(https://zupimages.net/up/20/20/junv.jpg);
+  background-size: cover;
 }
 
-.img_righcontainer {
-  width: 1000px;
+.img_rightcontainer {
+  width: 58vw;
 }
 
 .sectionTwo__textcontainer {
@@ -111,49 +116,47 @@ body {
   text-align: center;
 }
 
-.sectionTwo__img {
-  width: 300px;
-  position: absolute;
-  right: 0;
-}
+/*-------------------------------------------------------------------------*/
+/*------------------------------- Section 3  ------------------------------*/
+/*-------------------------------------------------------------------------*/
 
 .sectionThree {
   background-color: black;
   border-bottom: 2px solid #ff65fb;
-  height: 550px;
+  height: 65vh;
   display: flex;
 }
 
 .sectionThree__leftcontainer {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-end;
   color: whitesmoke;
   width: 40vw;
-  background-color: blueviolet;
+  background-image: url(https://zupimages.net/up/20/20/720k.jpg);
+  background-size: cover;
 }
 
 .sectionThree__rightcontainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   color: whitesmoke;
   width: 60vw;
 }
 
-.img_righcontainer {
-  width: 1000px;
+.img_leftcontainer {
+  width: 21vw;
 }
 
 .sectionThree__textcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-top: 40px;
   text-align: center;
-}
-
-.sectionThree__img {
-  width: 300px;
-  position: absolute;
-  right: 0;
 }
 
 .block__container {
