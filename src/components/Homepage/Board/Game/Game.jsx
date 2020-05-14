@@ -613,8 +613,9 @@ class Game extends Component {
 
           {this.state.interface === 3
             && (
-            <div>
-              <p>Enemy Turn</p>
+            <div className="textslide__container">
+              <p className="text__slideleft">Ennemy</p>
+              <p className="text__slideright"> Turn</p>
               <input type="button" className="continueButton" onClick={this.transition} value="Continue" />
             </div>
             )}
