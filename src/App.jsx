@@ -1,10 +1,4 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-} from 'react-router-dom';
 import Axios from 'axios';
 import './App.css';
 

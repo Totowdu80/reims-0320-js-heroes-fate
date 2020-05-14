@@ -17,8 +17,8 @@
     border-style: double;
     padding-top: 1%;
     padding-bottom: 1%;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .rulesintracontainer {
@@ -50,4 +50,16 @@
 .instrucPart1 {
     display: flex;
     flex-direction: row ;
+}
+
+.ParInstruc{
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.219);
+    padding: 3%;
+    margin-bottom: 1%;
+}
+
+.buttonPlayInstruc {
+    display: flex;
+    align-items: center;
 }
