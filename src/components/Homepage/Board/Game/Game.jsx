@@ -13,8 +13,8 @@ class Game extends Component {
       interface: 0,
       playerLaunch: '',
       iaLaunch: '',
-      enemyLife: parseFloat(this.props.heroes[0].powerstats.power) * 2,
-      playerLife: parseFloat(this.props.heroes[1].powerstats.power) * 2,
+      enemyLife: parseFloat(this.props.heroes[1].powerstats.power) * 2,
+      playerLife: parseFloat(this.props.heroes[0].powerstats.power) * 2,
     };
     this.lowAtt = this.lowAtt.bind(this);
     this.mediumAtt = this.mediumAtt.bind(this);
@@ -49,8 +49,8 @@ class Game extends Component {
   }
 
   lowAtt() {
-    const playerAttack = parseFloat(this.props.heroes[1].powerstats.strength);
-    const enemyDefense = (parseFloat(this.props.heroes[0].powerstats.durability) + parseFloat(this.props.heroes[0].powerstats.combat)) / 2;
+    const playerAttack = parseFloat(this.props.heroes[0].powerstats.strength);
+    const enemyDefense = (parseFloat(this.props.heroes[1].powerstats.durability) + parseFloat(this.props.heroes[1].powerstats.combat)) / 2;
     const dicePlayer = Math.floor(Math.random() * (Math.floor(100)));
     const diceIA = Math.floor(Math.random() * (Math.floor(100)));
     let attack = true;
@@ -135,8 +135,8 @@ class Game extends Component {
   }
 
   mediumAtt() {
-    const playerAttack = parseFloat(this.props.heroes[1].powerstats.strength);
-    const enemyDefense = (parseFloat(this.props.heroes[0].powerstats.durability) + parseFloat(this.props.heroes[0].powerstats.combat)) / 2;
+    const playerAttack = parseFloat(this.props.heroes[0].powerstats.strength);
+    const enemyDefense = (parseFloat(this.props.heroes[1].powerstats.durability) + parseFloat(this.props.heroes[1].powerstats.combat)) / 2;
     const dicePlayer = Math.floor(Math.random() * (Math.floor(100)));
     const diceIA = Math.floor(Math.random() * (Math.floor(100)));
     let attack = true;
@@ -221,8 +221,8 @@ class Game extends Component {
   }
 
   highAtt() {
-    const playerAttack = parseFloat(this.props.heroes[1].powerstats.strength);
-    const enemyDefense = (parseFloat(this.props.heroes[0].powerstats.durability) + parseFloat(this.props.heroes[0].powerstats.combat)) / 2;
+    const playerAttack = parseFloat(this.props.heroes[0].powerstats.strength);
+    const enemyDefense = (parseFloat(this.props.heroes[1].powerstats.durability) + parseFloat(this.props.heroes[1].powerstats.combat)) / 2;
     const dicePlayer = Math.floor(Math.random() * (Math.floor(100)));
     const diceIA = Math.floor(Math.random() * (Math.floor(100)));
     let attack = true;
@@ -307,8 +307,8 @@ class Game extends Component {
   }
 
   lowDef(thresholds) {
-    const enemyAttack = parseFloat(this.props.heroes[0].powerstats.strength);
-    const playerDefense = (parseFloat(this.props.heroes[1].powerstats.durability) + parseFloat(this.props.heroes[1].powerstats.combat)) / 2;
+    const enemyAttack = parseFloat(this.props.heroes[1].powerstats.strength);
+    const playerDefense = (parseFloat(this.props.heroes[0].powerstats.durability) + parseFloat(this.props.heroes[0].powerstats.combat)) / 2;
     const dicePlayer = Math.floor(Math.random() * (Math.floor(100)));
     const diceIA = Math.floor(Math.random() * (Math.floor(100)));
     let attack = true;
@@ -393,8 +393,8 @@ class Game extends Component {
   }
 
   mediumDef() {
-    const enemyAttack = parseFloat(this.props.heroes[0].powerstats.strength);
-    const playerDefense = (parseFloat(this.props.heroes[1].powerstats.durability) + parseFloat(this.props.heroes[1].powerstats.combat)) / 2;
+    const enemyAttack = parseFloat(this.props.heroes[1].powerstats.strength);
+    const playerDefense = (parseFloat(this.props.heroes[0].powerstats.durability) + parseFloat(this.props.heroes[0].powerstats.combat)) / 2;
     const dicePlayer = Math.floor(Math.random() * (Math.floor(100)));
     const diceIA = Math.floor(Math.random() * (Math.floor(100)));
     let attack = true;
@@ -479,8 +479,8 @@ class Game extends Component {
   }
 
   highDef() {
-    const enemyAttack = parseFloat(this.props.heroes[0].powerstats.strength);
-    const playerDefense = (parseFloat(this.props.heroes[1].powerstats.durability) + parseFloat(this.props.heroes[1].powerstats.combat)) / 2;
+    const enemyAttack = parseFloat(this.props.heroes[1].powerstats.strength);
+    const playerDefense = (parseFloat(this.props.heroes[0].powerstats.durability) + parseFloat(this.props.heroes[0].powerstats.combat)) / 2;
     const dicePlayer = Math.floor(Math.random() * (Math.floor(100)));
     const diceIA = Math.floor(Math.random() * (Math.floor(100)));
     let attack = true;
@@ -568,7 +568,7 @@ class Game extends Component {
     return (
       <div className="backgroundAll">
         <div>
-          {this.props.heroes.length > 1 && <EnemyLife venom={this.props.heroes[0]} enemyLife={this.state.enemyLife} />}
+          {this.props.heroes.length > 1 && <EnemyLife villain={this.props.heroes[1]} enemyLife={this.state.enemyLife} />}
         </div>
 
         <div className="interface__gameplay">
@@ -667,7 +667,7 @@ class Game extends Component {
         </div>
 
         <div>
-          {this.props.heroes.length > 1 && <PlayerStats spidey={this.props.heroes[1]} playerLife={this.state.playerLife} />}
+          {this.props.heroes.length > 1 && <PlayerStats player={this.props.heroes[0]} playerLife={this.state.playerLife} />}
         </div>
       </div>
     );
