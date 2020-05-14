@@ -11,15 +11,16 @@ class PlayerStats extends React.Component {
     return (
       <div className="interface__player">
         <div className="lifebar">
-          <progress className="life__container" id="enemyLife" max={parseFloat(this.props.spidey.powerstats.power) * 2} value={this.props.playerLife}>50%</progress>
+          <progress className="life__container" id="enemyLife" max={parseFloat(this.props.player.powerstats.power) * 2} value={this.props.playerLife}>100%</progress>
+          <p>{this.props.playerLife}</p>
         </div>
-        <img className="player_img" src={this.props.spidey.image.url} alt='Player Avatar' />
-        <h2 className="playerName">{this.props.spidey.name} </h2>
+        <img className="player_img" src={this.props.player.image.url} alt='Player Avatar' />
+        <h2 className="playerName">{this.props.player.name} </h2>
         <div className="stats__container">
           <ul className="stats__list">
-            <li>Initiative : {(parseFloat(this.props.spidey.powerstats.intelligence) + parseFloat(this.props.spidey.powerstats.speed))/2} </li>
-            <li>Attaque : {parseFloat(this.props.spidey.powerstats.strength)} </li>
-            <li>Résistence : {(parseFloat(this.props.spidey.powerstats.durability) + parseFloat(this.props.spidey.powerstats.combat))/2} </li>
+            <li>Initiative : {(parseFloat(this.props.player.powerstats.intelligence) + parseFloat(this.props.player.powerstats.speed))/2} </li>
+            <li>Attaque : {parseFloat(this.props.player.powerstats.strength)} </li>
+            <li>Résistence : {(parseFloat(this.props.player.powerstats.durability) + parseFloat(this.props.player.powerstats.combat))/2} </li>
           </ul>
         </div>
       </div>

@@ -21,15 +21,24 @@
 /*------------------------------- Interfaces ------------------------------*/
 /*-------------------------------------------------------------------------*/
 
-.life__container {
-  /* background-color: yellow; */
-  width: 500px;
-}
+.lifebar {
+  background-color: whiteSmoke;
+  border-radius: 2px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
 
-.life__bar {
-  background-color: red;
-  border-radius: 50%;
-  padding: 20px;
+  width: 250px;
+  height: 20px;
+  
+  position: relative;
+  display: block;
+}
+  
+.life__container {
+  background-color: blue;
+  border-radius: 2px;
+
+  display: block;
+  text-indent: -9999px;
 }
 
 .stats__container {

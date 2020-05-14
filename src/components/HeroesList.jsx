@@ -27,10 +27,10 @@ class HeroesList extends Component {
               <div className="heroStats">
                 <div>
                   <img className="imageStats" src="https://zupimages.net/up/20/20/52fc.png" alt="" />
-                  <p className="stats">{hero.powerstats.power * 10 }</p>
+                  <p className="stats">{hero.powerstats.power * 2 }</p>
                 </div>
                 <div>
-                  <img className="imageStats" src="https://zupimages.net/up/20/20/o60y.png" alt="" /> 
+                  <img className="imageStats" src="https://zupimages.net/up/20/20/o60y.png" alt="" />
                   <p className="stats">{initiative}</p>
                 </div>
                 <div>
