@@ -112,6 +112,11 @@ progress[value]::-webkit-progress-value::after {
   color: white;
 }
 
+.stats {
+  display: flex;
+  justify-content: space-around;
+}
+
 /* --------------------------------- */
 /* ------------ Ennemi ------------- */
 /* --------------------------------- */
@@ -263,13 +268,36 @@ progress[value]::-webkit-progress-value::after {
 }
 
 .text__slideleft {
+  position: relative;
   font-size: 14vh;
-  margin: 0;
+
+  animation-name: slideLeft;
+  animation-duration: 3s;
+}
+
+@keyframes slideLeft {
+  from {
+    left: -150vh;
+  }
+  to {
+    left: 0vh;
+  }
 }
 
 .text__slideright {
+  position: relative;
   font-size: 14vh;
-  margin: 0;
+  animation-name: slideRight;
+  animation-duration: 3s;
+}
+
+@keyframes slideRight {
+  from {
+    right: -150vh;
+  }
+  to {
+    right: 0vh;
+  }
 }
 
 .result__container {
@@ -286,3 +314,5 @@ progress[value]::-webkit-progress-value::after {
 .textresult {
   margin: 4rem;
 }
+
+
