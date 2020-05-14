@@ -13,7 +13,7 @@ class Homepage extends React.Component {
         <div>
           <section className="sectionOne">
             <img className="imgLogo" src="https://zupimages.net/up/20/20/te5i.png" alt="Logo Hero Fate" />
-            <p className="Slogan">Will you change the fate of your hero ?</p>
+            <p>Will you change the fate of your hero ?</p>
             <div className="button__container">
               <button
                 className="homeButton"
@@ -37,24 +37,10 @@ class Homepage extends React.Component {
             <div className="sectionTwo__leftcontainer">
               <div className="sectionTwo__textcontainer">
                 <h2>Bienvenue sur Heroes Fate</h2>
-                <p className="Slogan">Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
-                <div className="block__container">
-                  <div className="littleBlock">
-                    <button onClick={this.props.clickUniverse} type="button" >Choose your universe !</button>
-                    <button onClick={this.props.clickChoice} type="button">choose your hero !</button>
-                    <div className="littleBlock__text">
-                      <p>Différents Univers ...</p>
-                      <p>Un choix varié d'univers allant de Marvel à DC en passant par Star Wars</p>
-                    </div>
-                  </div>
-                  <div className="littleBlock">
-                    <img  className="littleBlock__img" src="https://thumbor-gc.tomandco.uk/unsafe/trim/fit-in/342x342/center/middle/smart/filters:upscale():fill(white):sharpen(0.5,0.5,true)/https://shop.eaglemoss.com/static/media/catalog/product/i/m/abyswe045_3.jpg" alt="" />
-                    <div className="littleBlock__text">
-                      <p>... pour différents héros</p>
-                      <p>Un choix varié d'univers allant de Marvel à DC en passant par Star Wars</p>
-                    </div>
-                  </div>
-                </div>
+                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
+                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
+                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
+                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
               </div>
             </div>
             <div className="sectionTwo__rightcontainer">
@@ -63,31 +49,14 @@ class Homepage extends React.Component {
           </section>
           
           <section className="sectionThree">
-          <div className="sectionThree__leftcontainer">
-              <div className="sectionThree__textcontainer">
-                <h2>Bienvenue sur Heroes Fate</h2>
-                <p className="Slogan">Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
-                <div className="block__container">
-                  <div className="littleBlock">
-                    <button onClick={this.props.clickUniverse} type="button" >Choose your universe !</button>
-                    <button onClick={this.props.clickChoice} type="button">choose your hero !</button>
-                    <div className="littleBlock__text">
-                      <p>Différents Univers ...</p>
-                      <p>Un choix varié d'univers allant de Marvel à DC en passant par Star Wars</p>
-                    </div>
-                  </div>
-                  <div className="littleBlock">
-                    <img  className="littleBlock__img" src="https://thumbor-gc.tomandco.uk/unsafe/trim/fit-in/342x342/center/middle/smart/filters:upscale():fill(white):sharpen(0.5,0.5,true)/https://shop.eaglemoss.com/static/media/catalog/product/i/m/abyswe045_3.jpg" alt="" />
-                    <div className="littleBlock__text">
-                      <p>... pour différents héros</p>
-                      <p>Un choix varié d'univers allant de Marvel à DC en passant par Star Wars</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="sectionThree__leftcontainer">
+              <img className="img_righcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
             </div>
             <div className="sectionThree__rightcontainer">
-              <img className="img_righcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
+              <div className="sectionThree__textcontainer">
+                <h2>Les nouveautés à venir</h2>
+                <p>Coming soon</p>
+              </div>
             </div>
           </section>
           <section>
