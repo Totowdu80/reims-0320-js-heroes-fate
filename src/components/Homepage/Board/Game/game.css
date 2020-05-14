@@ -77,6 +77,26 @@ progress[value]::-webkit-progress-value::after {
   background-color: white;
 }
 
+.counterLife {
+  display: flex;
+  flex-direction: column;
+}
+
+.counterLifeIa {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroLife {
+  margin-left: 22vh;
+  color: white;
+}
+
+.villainLife {
+  margin-left: 22vh;
+  color: white;
+}
+
 .stats__container {
   background-color: black;
   margin: 0px;

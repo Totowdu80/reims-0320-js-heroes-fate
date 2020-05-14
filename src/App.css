@@ -291,7 +291,7 @@ body {
   height: 100vh;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-image: url(https://zupimages.net/up/20/20/zoau.jpg);
+  background-image: url(https://zupimages.net/up/20/20/cezn.jpg);
   background-size: cover;
 }
 
@@ -302,6 +302,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   padding: 0;
+  margin-right: 11vh;
   border: none;
   margin-top: 8vh;
   border: solid 10px black;
@@ -314,7 +315,20 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   padding: 0;
-  margin-left: 60vh;
+  margin-left: 9vh;
+  border: solid 10px black;
+  margin-top: 7.5vh;
+}
+
+.buttonOther {
+  background-image: url(https://zupimages.net/up/20/20/8qag.png);
+  background-position: center;
+  width: 75vh;
+  height: 37.8vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin-left: 20vh;
   border: solid 10px black;
   margin-top: 7.5vh;
 }
@@ -322,29 +336,37 @@ body {
 .batman {
   position: absolute;
   bottom: 0;
-  width: 50vh;
-  right: 10vh;
+  width: 40vh;
+  left: 0;
 }
 
 .spider {
   position: absolute;
   width: 33vh;
   top: 0;
-  left: 85vh;
+  right: 0;
 }
 
 .yoda {
   position: absolute;
-  width: 90vh;
-  bottom: 10vh;
-  left: 0;
+  width: 80vh;
+  top: 5vh;
+  left: 60vh;
+}
+
+.goku {
+  position: absolute;
+  width: 25vh;
+  bottom: 0;
+  right: 80vh;
 }
 
 .pChoose {
   position: absolute;
+  color: white;
   top: 40%;
   bottom: 40%;
   right: 30%;
-  left: 30%;
+  left: 37%;
   font-size: 7vh;
 }

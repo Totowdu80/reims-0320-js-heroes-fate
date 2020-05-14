@@ -30,6 +30,7 @@ class App extends React.Component {
       { universe: 'marvel', heroes: [{ id: 620, nemesisId: 687 }, { id: 346, nemesisId: 655 }, { id: 717, nemesisId: 423 }], villains: [{ id: 687 }, { id: 655 }, { id: 423 }] },
       { universe: 'starwars', heroes: [{ id: 418, nemesisId: 208 }, { id: 555, nemesisId: 639 }, { id: 307, nemesisId: 127 }], villains: [{ id: 208 }, { id: 639 }, { id: 127 }] },
       { universe: 'dc', heroes: [{ id: 70, nemesisId: 370 }, { id: 265, nemesisId: 528 }, { id: 298, nemesisId: 216 }], villains: [{ id: 370 }, { id: 528 }, { id: 216 }] },
+      { universe: 'other', heroes: [{ id: 176, nemesisId: 540 }, { id: 389, nemesisId: 287 }, { id: 289, nemesisId: 686 }], villains: [{ id: 540 }, { id: 287 }, { id: 686 }] },
     ];
 
     const heroesIds = listHeroes.reduce((ids, universe) => [
