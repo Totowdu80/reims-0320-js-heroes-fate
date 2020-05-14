@@ -46,10 +46,12 @@ body {
   flex-direction: column;
   align-items: center;
   padding-bottom: 60px;
+  padding-top: 50px;
 }
 
 .button__container {
   display: flex;
+  margin-bottom: 40px;
 }
 .homeButton {
   border: none;
@@ -79,14 +81,29 @@ body {
 .sectionTwo {
   background-color: black;
   border-bottom: 2px solid #ff65fb;
-  height: 600px;
+  height: 550px;
+  display: flex;
 }
 
-.sectionTwo__container {
+.sectionTwo__leftcontainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: whitesmoke;
+  width: 60vw;
+}
+
+.sectionTwo__rightcontainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: whitesmoke;
+  width: 40vw;
+  background-color: blueviolet;
+}
+
+.img_righcontainer {
+  width: 1000px;
 }
 
 .sectionTwo__textcontainer {
@@ -95,6 +112,45 @@ body {
 }
 
 .sectionTwo__img {
+  width: 300px;
+  position: absolute;
+  right: 0;
+}
+
+.sectionThree {
+  background-color: black;
+  border-bottom: 2px solid #ff65fb;
+  height: 550px;
+  display: flex;
+}
+
+.sectionThree__leftcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: whitesmoke;
+  width: 40vw;
+  background-color: blueviolet;
+}
+
+.sectionThree__rightcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: whitesmoke;
+  width: 60vw;
+}
+
+.img_righcontainer {
+  width: 1000px;
+}
+
+.sectionThree__textcontainer {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.sectionThree__img {
   width: 300px;
   position: absolute;
   right: 0;
@@ -124,7 +180,42 @@ body {
   border-top: 2px solid #ff65fb;
 }
 
+.footer__container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  color: whitesmoke;
+  text-decoration: none;
+}
 
+.footer__container ul {
+  margin: 30px 0px 40px 0px;
+  padding: 0;
+}
+
+.footer__container ul li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+}
+
+.footer__container ul li img {
+  width: 2.5rem;
+}
+
+.footer__container ul li a {
+  list-style: none;
+  text-decoration: none;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.footer__container ul img {
+  width: 200px;
+}
 
 
 /*----------------------HeroesList-----------------*/

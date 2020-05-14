@@ -13,13 +13,13 @@ class Universe extends Component {
     return (
       <div className="backUniverse">
         <div>
-          <button onClick={this.props.clickChoice} type='button' className="buttonSw" />
+          <button onClick={() => this.props.clickChoice('starwars')} type='button' className="buttonSw" />
         </div>
         <div>
-          <button onClick={this.props.clickChoice} type='button' className="buttonMarvel" />
+          <button onClick={() => this.props.clickChoice('marvel')} type='button' className="buttonMarvel" />
         </div>
         <div>
-          <button onClick={this.props.clickChoice} type='button' className="buttonDc" />
+          <button onClick={() => this.props.clickChoice('dc')} type='button' className="buttonDc" />
         </div>
         <div>
           <img className="batman" src="https://zupimages.net/up/20/20/u2wi.png" alt="batman" />
