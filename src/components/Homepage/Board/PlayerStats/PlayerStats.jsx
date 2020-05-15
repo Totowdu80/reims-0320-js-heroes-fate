@@ -31,9 +31,17 @@ class PlayerStats extends React.Component {
         <h2 className="playerName">{this.props.player.name} </h2>
         <div className="stats__container">
           <ul className="stats__list">
-            <li>Initiative : {(parseFloat(this.props.player.powerstats.intelligence) + parseFloat(this.props.player.powerstats.speed))/2} </li>
-            <li>Attaque : {parseFloat(this.props.player.powerstats.strength)} </li>
-            <li>Résistence : {(parseFloat(this.props.player.powerstats.durability) + parseFloat(this.props.player.powerstats.combat))/2} </li>
+            <li>
+              <img className="imageStats__board" src="https://zupimages.net/up/20/20/5rz1.png" alt="" />
+              <p>{(parseFloat(this.props.player.powerstats.intelligence) + parseFloat(this.props.player.powerstats.speed))/2}</p> </li>
+            <li>
+              <img className="imageStats__board" src="https://zupimages.net/up/20/20/3do4.png" alt="" />
+              <p>{parseFloat(this.props.player.powerstats.strength)}</p>
+            </li>
+            <li>
+              <img className="imageStats__board" src="https://zupimages.net/up/20/20/nzbe.png" alt="" />
+              <p>{(parseFloat(this.props.player.powerstats.durability) + parseFloat(this.props.player.powerstats.combat))/2}</p>
+            </li>
           </ul>
         </div>
       </div>

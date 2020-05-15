@@ -31,9 +31,18 @@ class EnemyLife extends React.Component {
         <h2 className="playerName">{this.props.villain.name} </h2>
         <div className="stats__container">
           <ul className="stats__list">
-            <li>Initiative : {(parseFloat(this.props.villain.powerstats.intelligence) + parseFloat(this.props.villain.powerstats.speed))/2} </li>
-            <li>Attaque : {parseFloat(this.props.villain.powerstats.strength)} </li>
-            <li>Résistence : {(parseFloat(this.props.villain.powerstats.durability) + parseFloat(this.props.villain.powerstats.combat))/2} </li>
+            <li>
+              <img className="imageStats__board" src="https://zupimages.net/up/20/20/5rz1.png" alt="" />
+              <p>{(parseFloat(this.props.villain.powerstats.intelligence) + parseFloat(this.props.villain.powerstats.speed))/2}</p>
+            </li>
+            <li>
+              <img className="imageStats__board" src="https://zupimages.net/up/20/20/5rz1.png" alt="" />
+              <p>{parseFloat(this.props.villain.powerstats.strength)}</p>
+            </li>
+            <li>
+              <img className="imageStats__board" src="https://zupimages.net/up/20/20/5rz1.png" alt="" />
+              <p>{(parseFloat(this.props.villain.powerstats.durability) + parseFloat(this.props.villain.powerstats.combat))/2}</p>
+            </li>
           </ul>
         </div>
       </div>
