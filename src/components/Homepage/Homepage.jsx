@@ -13,7 +13,7 @@ class Homepage extends React.Component {
         <div>
           <section className="sectionOne">
             <img className="imgLogo" src="https://zupimages.net/up/20/20/te5i.png" alt="Logo Hero Fate" />
-            <p className="slogan">Will you change the fate of your hero ?</p>
+            <p className="slogan">Changerez vous le destin de votre héros ?</p>
             <div className="button__container">
               <button
                 className="homeButton"
