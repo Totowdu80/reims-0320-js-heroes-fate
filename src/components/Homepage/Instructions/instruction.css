@@ -28,7 +28,7 @@
 }
 
 .subtitlerules {
-    color: grey;
+    color: rgb(0, 0, 0);
     font-size: 2rem;
     text-align: center;
     text-decoration: underline;
@@ -45,6 +45,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 2%;
 }
 
 .instrucPart1 {
@@ -62,4 +63,16 @@
 .buttonPlayInstruc {
     display: flex;
     align-items: center;
+}
+
+.parDee{
+    margin-top: 4%;
+    text-align: center;
+    margin-right: 1%;
+}
+
+.parAttak{
+    margin-top: 2%;
+    text-align: center;
+    margin-left: 1%;
 }

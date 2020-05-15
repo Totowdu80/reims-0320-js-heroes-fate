@@ -26,19 +26,19 @@ class HeroesList extends Component {
               </div>
               <div className="heroStats">
                 <div>
-                  <img className="imageStats" src="https://zupimages.net/up/20/20/52fc.png" alt="" />
+                  <img className="imageStats" src="https://zupimages.net/up/20/20/ilhc.png" alt="" />
                   <p className="stats">{hero.powerstats.power * 2 }</p>
                 </div>
                 <div>
-                  <img className="imageStats" src="https://zupimages.net/up/20/20/o60y.png" alt="" />
+                  <img className="imageStats" src="https://zupimages.net/up/20/20/5rz1.png" alt="" />
                   <p className="stats">{initiative}</p>
                 </div>
                 <div>
-                  <img className="imageStats" src="https://zupimages.net/up/20/20/9q1j.png" alt="" />
+                  <img className="imageStats" src="https://zupimages.net/up/20/20/3do4.png" alt="" />
                   <p className="stats">{hero.powerstats.strength}</p>
                 </div>
                 <div>
-                  <img className="imageStats" src="https://zupimages.net/up/20/20/f8xz.png" alt="" />
+                  <img className="imageStats" src="https://zupimages.net/up/20/20/nzbe.png" alt="" />
                   <p className="stats">{resistance}</p>
                 </div>
               </div>

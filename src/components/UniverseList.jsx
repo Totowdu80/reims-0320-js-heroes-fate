@@ -22,16 +22,22 @@ class Universe extends Component {
           <button onClick={() => this.props.clickChoice('dc')} type='button' className="buttonDc" />
         </div>
         <div>
+          <button onClick={() => this.props.clickChoice('other')} type='button' className="buttonOther" />
+        </div>
+        <div>
           <img className="batman" src="https://zupimages.net/up/20/20/u2wi.png" alt="batman" />
         </div>
         <div>
-          <img className="spider" src="https://purepng.com/public/uploads/medium/purepng.com-spider-manspider-manspidermansuperherocomic-bookmarvel-comicscharacterstan-lee-1701528654990oleyd.png" alt="batman" />
+          <img className="spider" src="https://purepng.com/public/uploads/medium/purepng.com-spider-manspider-manspidermansuperherocomic-bookmarvel-comicscharacterstan-lee-1701528654990oleyd.png" alt="spiderman" />
         </div>
         <div>
-          <img className="yoda" src="https://zupimages.net/up/20/20/dcm4.png" alt="batman" />
+          <img className="yoda" src="https://zupimages.net/up/20/20/dcm4.png" alt="yoda" />
         </div>
         <div>
-          <p className="pChoose">Choose a Universe !</p>
+          <img className="goku" src="https://zupimages.net/up/20/20/vnfv.png" alt="goku" />
+        </div>
+        <div>
+          <p className="pChoose">Choisis un Univers !</p>
         </div>
       </div>
     );

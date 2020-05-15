@@ -13,21 +13,21 @@ class Homepage extends React.Component {
         <div>
           <section className="sectionOne">
             <img className="imgLogo" src="https://zupimages.net/up/20/20/te5i.png" alt="Logo Hero Fate" />
-            <p>Will you change the fate of your hero ?</p>
+            <p className="slogan">Will you change the fate of your hero ?</p>
             <div className="button__container">
               <button
                 className="homeButton"
                 onClick={this.props.clickRules}
                 type="button"
               >
-                How to play
+                Comment jouer ?
               </button>
               <button
                 className="homeButton"
                 onClick={this.props.clickUniverse}
                 type="button"
               >
-                <span>Play</span>
+                <span>Jouer</span>
               </button>
             </div>
           </section>
@@ -36,25 +36,29 @@ class Homepage extends React.Component {
           <section className="sectionTwo">
             <div className="sectionTwo__leftcontainer">
               <div className="sectionTwo__textcontainer">
-                <h2>Bienvenue sur Heroes Fate</h2>
-                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
-                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
-                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
-                <p>Choisis ton univers, ton héros et pars jouer des parties endiablées pour venir à bout de tes pires ennemis</p>
+                <h2 className="articleTitle">Bienvenue sur Heroes Fate</h2>
+                <p>
+                  Heroes Fate est un jeu de plateau dans lequel vous incarnez un héros et revivez son histoire à travers différents combats
+                </p>
+                <p>Choisissez votre héros, enfilez votre plus beau costume et lancez vous dans l'aventure</p>
               </div>
             </div>
             <div className="sectionTwo__rightcontainer">
-              <img className="img_righcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
+              <img className="img_rightcontainer" src="https://www.dlf.pt/png/big/6/68463_darth-png.png" alt="" />
             </div>
           </section>
           <section className="sectionThree">
             <div className="sectionThree__leftcontainer">
-              <img className="img_righcontainer" src="https://zupimages.net/up/20/20/1ycs.png" alt="" />
+              <img className="img_leftcontainer" src="https://zupimages.net/up/20/20/nt4c.png" alt="" />
             </div>
             <div className="sectionThree__rightcontainer">
               <div className="sectionThree__textcontainer">
-                <h2>Les nouveautés à venir</h2>
-                <p>Coming soon</p>
+                <h2 className="articleTitle">Les nouveautés à venir</h2>
+                <ul>
+                  <h3>Prochaine mise à jour :</h3>
+                  <li>Toujours plus d'univers</li>
+                  <li>De nouveaux héros à jouer</li>
+                </ul>
               </div>
             </div>
           </section>
