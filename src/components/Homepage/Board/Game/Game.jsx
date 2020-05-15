@@ -583,11 +583,23 @@ class Game extends Component {
 
           {this.state.interface === 1
             && (
-            <div>
+            <div className="buttonAttack__container">
               {/* Attack Choice */}
-              <input type="button" className="gameButton" onClick={this.lowAtt} value="Attack 1" />
-              <input type="button" className="gameButton" onClick={this.mediumAtt} value="Attack 2" />
-              <input type="button" className="gameButton" onClick={this.highAtt} value="Attack 3" />
+              <div type="button" className="attackButton" onClick={this.lowAtt}>
+                <h2>Petite Attaque</h2>
+                <p>Dégâts Faibles</p>
+                <p>Chance de succès : 80%</p>
+              </div>
+              <div type="button" className="attackButton" onClick={this.mediumAtt}>
+                <h2>Attaque Moyenne</h2>
+                <p>Dégâts Normaux</p>
+                <p>Chance de succès : 50%</p>
+              </div>
+              <div type="button" className="attackButton" onClick={this.highAtt}>
+                <h2>Puissante Attaque</h2>
+                <p>Dégâts Puissants</p>
+                <p>Chance de succès : 20%</p>
+              </div>
             </div>
             )}
 
@@ -622,11 +634,23 @@ class Game extends Component {
 
           {this.state.interface === 4
             && (
-            <div>
+            <div className="buttonAttack__container">
               {/* Défense Choice */}
-              <input type="button" className="gameButton" onClick={() => this.lowDef({ low: 5, medium: 20, high: 95 })} value="Defense 1" />
-              <input type="button" className="gameButton" onClick={this.mediumDef} value="Defense 2" />
-              <input type="button" className="gameButton" onClick={this.highDef} value="Defense 3" />
+              <div type="button" className="attackButton" onClick={() => this.lowDef({ low: 5, medium: 20, high: 95 })}>
+                <h2>Petite Défense</h2>
+                <p>Résistances Faibles</p>
+                <p>Chance de succès : 80%</p>
+              </div>
+              <div type="button" className="attackButton" onClick={this.mediumDef}>
+                <h2>Défense moyenne</h2>
+                <p>Résistances Normales</p>
+                <p>Chance de succès : 50%</p>
+              </div>
+              <div type="button" className="attackButton" onClick={this.highDef}>
+                <h2>Défense Puissante</h2>
+                <p>Puissantes Résistances</p>
+                <p>Chance de succès : 20%</p>
+              </div>
             </div>
             )}
 
