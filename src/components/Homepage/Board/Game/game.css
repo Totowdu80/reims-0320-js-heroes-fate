@@ -319,7 +319,7 @@ progress[value]::-webkit-progress-value::after {
   font-size: 14vh;
   margin: 0;
   animation-name: slideLeft;
-  animation-duration: 3s;
+  animation-duration: 1.5s;
 }
 
 @keyframes slideLeft {
@@ -336,7 +336,7 @@ progress[value]::-webkit-progress-value::after {
   font-size: 14vh;
   margin: 0;
   animation-name: slideRight;
-  animation-duration: 3s;
+  animation-duration: 1.5s;
 }
 
 @keyframes slideRight {
