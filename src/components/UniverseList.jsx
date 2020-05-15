@@ -37,7 +37,7 @@ class Universe extends Component {
           <img className="goku" src="https://zupimages.net/up/20/20/vnfv.png" alt="goku" />
         </div>
         <div>
-          <p className="pChoose">Choose a Universe !</p>
+          <p className="pChoose">Choisis un Univers !</p>
         </div>
       </div>
     );

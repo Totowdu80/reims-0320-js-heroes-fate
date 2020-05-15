@@ -2,10 +2,6 @@
 /*---------------------------- Global CSS ---------------------------------*/
 /*-------------------------------------------------------------------------*/
 
-
-* {
-  font-family: "Comic Ink";
-}
 .globalContainer {
   display: flex;
   flex-direction: column;
@@ -194,6 +190,7 @@ progress[value]::-webkit-progress-value::after {
   font-size: 3rem;
   color: white;
   width: 20rem;
+  text-shadow: 0px 0px 3px #000b28 ;
 }
 
 /*-------------------------------------------------------------------------*/
@@ -315,11 +312,16 @@ progress[value]::-webkit-progress-value::after {
 }
 
 .text__slideleft {
+  animation-name: slideLeft;
+}
+
+.text__slideleft, .text__slideright {
   position: relative;
   font-size: 14vh;
   margin: 0;
-  animation-name: slideLeft;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
+  font-family: 'Bungee Inline', cursive;
+  color: whitesmoke;
 }
 
 @keyframes slideLeft {
@@ -332,11 +334,7 @@ progress[value]::-webkit-progress-value::after {
 }
 
 .text__slideright {
-  position: relative;
-  font-size: 14vh;
-  margin: 0;
   animation-name: slideRight;
-  animation-duration: 1.5s;
 }
 
 @keyframes slideRight {
@@ -365,6 +363,12 @@ progress[value]::-webkit-progress-value::after {
   margin: 4rem 0px;
   text-align: center;
   color: whitesmoke;
+}
+
+.endtext {
+  font-family: 'Bungee Inline', cursive;
+  color: whitesmoke;
+  font-size: 8rem;
 }
 
 

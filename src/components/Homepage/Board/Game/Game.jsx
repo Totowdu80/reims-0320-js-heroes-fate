@@ -677,7 +677,7 @@ class Game extends Component {
           {this.state.interface === 6
             && (
             <div>
-              <p>Victoire</p>
+              <p className="endtext">Victoire</p>
               <input type="button" className="continueButton" onClick={this.props.clickHome} value="Retour à l'accueil" />
             </div>
             )}
@@ -685,7 +685,7 @@ class Game extends Component {
           {this.state.interface === 7
             && (
             <div>
-              <p>Défaite</p>
+              <p className="endtext">Défaite</p>
               <input type="button" className="continueButton" onClick={this.props.clickHome} value="Retour à l'accueil" />
             </div>
             )}

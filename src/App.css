@@ -78,6 +78,18 @@ body {
   vertical-align: middle;
 }
 
+.slogan {
+  font-family: 'Righteous', cursive;
+  color: whitesmoke;
+  font-size: 4rem;
+}
+
+.articleTitle {
+  font-family: 'Righteous', cursive;
+  color: whitesmoke;
+  font-size: 2rem;
+}
+
 /*-------------------------------------------------------------------------*/
 /*------------------------------- Section 2  ------------------------------*/
 /*-------------------------------------------------------------------------*/
