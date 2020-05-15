@@ -575,8 +575,8 @@ class Game extends Component {
           {this.state.interface === 0
             && (
             <div className="textslide__container">
-              <p className="text__slideleft">Your</p>
-              <p className="text__slideright"> Turn</p>
+              <p className="text__slideleft">Votre</p>
+              <p className="text__slideright"> Tour</p>
               <input type="button" className="continueButton" onClick={this.transition} value="Continue" />
             </div>
             )}
@@ -614,8 +614,8 @@ class Game extends Component {
           {this.state.interface === 3
             && (
             <div className="textslide__container">
-              <p className="text__slideleft">Enemy</p>
-              <p className="text__slideright">Turn</p>
+              <p className="text__slideleft">Tour</p>
+              <p className="text__slideright">Ennemi</p>
               <input type="button" className="continueButton" onClick={this.transition} value="Continue" />
             </div>
             )}
@@ -653,7 +653,7 @@ class Game extends Component {
           {this.state.interface === 6
             && (
             <div>
-              <p>You Win</p>
+              <p>Victoire</p>
               <input type="button" className="continueButton" onClick={this.props.clickHome} value="Retour à l'accueil" />
             </div>
             )}
@@ -661,7 +661,7 @@ class Game extends Component {
           {this.state.interface === 7
             && (
             <div>
-              <p>You Lose</p>
+              <p>Défaite</p>
               <input type="button" className="continueButton" onClick={this.props.clickHome} value="Retour à l'accueil" />
             </div>
             )}

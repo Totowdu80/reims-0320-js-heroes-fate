@@ -36,11 +36,11 @@ class EnemyLife extends React.Component {
               <p>{(parseFloat(this.props.villain.powerstats.intelligence) + parseFloat(this.props.villain.powerstats.speed))/2}</p>
             </li>
             <li>
-              <img className="imageStats__board" src="https://zupimages.net/up/20/20/5rz1.png" alt="" />
+              <img className="imageStats__board" src="https://zupimages.net/up/20/20/3do4.png" alt="" />
               <p>{parseFloat(this.props.villain.powerstats.strength)}</p>
             </li>
             <li>
-              <img className="imageStats__board" src="https://zupimages.net/up/20/20/5rz1.png" alt="" />
+              <img className="imageStats__board" src="https://zupimages.net/up/20/20/nzbe.png" alt="" />
               <p>{(parseFloat(this.props.villain.powerstats.durability) + parseFloat(this.props.villain.powerstats.combat))/2}</p>
             </li>
           </ul>
